@@ -198,3 +198,26 @@
         min-width: 100%;
     }
 }
+
+/* ... (โค้ดส่วนอื่น ๆ เหมือนเดิม) ... */
+
+.map-image-container {
+    width: 100%;
+    height: 350px; /* กำหนดความสูงตามรูปภาพ */
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ปรับจาก .map-image เป็น .map-image-container iframe 
+  เพื่อให้สไตล์นี้มีผลกับ iframe ที่เราใส่เข้าไปใหม่ 
+*/
+.map-image-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0; /* เอาเส้นขอบของ iframe ออก */
+    display: block;
+}
+
+/* ... (โค้ดส่วนอื่น ๆ เหมือนเดิม) ... */
