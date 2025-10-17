@@ -1,0 +1,44 @@
+<footer>
+    <div class="top-footer">
+        
+        <div class="footer-col logo-col">
+            <div class="logo">
+                KodClean<span class="logo-icon">🍴</span>
+            </div>
+        </div>
+
+        <div class="footer-col subscription-col">
+            <h3 class="col-title">Get Exclusive Deals in your Inbox</h3>
+            <div class="subscribe-form">
+                <input type="email" placeholder="youremail@gmail.com" #emailInput>
+                <button (click)="subscribe(emailInput.value)">Subscribe</button>
+            </div>
+            <p class="spam-text">we wont spam, read our <a href="/email-policy">email policy</a></p>
+        </div>
+
+        <div class="footer-col links-col">
+            <h3 class="col-title">Important Links</h3>
+            <ul class="important-links">
+                <li *ngFor="let link of importantLinks">
+                    <a [routerLink]="link.route">{{ link.label }}</a>
+                </li>
+            </ul>
+            
+            <div class="social-media">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-footer">
+        <div class="copyright">
+            KodClean Copyright 2025, All Rights Reserved.
+        </div>
+
+        <div class="policy-links">
+            <a *ngFor="let link of policyLinks" [routerLink]="link.route">{{ link.label }}</a>
+        </div>
+    </div>
+</footer>

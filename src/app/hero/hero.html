@@ -1,0 +1,32 @@
+<section class="hero-container">
+  
+  <div class="hero-visuals">
+    <div class="green-main-shape"></div> 
+    
+    <div class="green-curved-shape"></div>
+
+    <img src="https://i.pinimg.com/1200x/32/34/eb/3234eb6943c60d16dccbca56b21819e4.jpg" alt="Pancakes or Pizza" class="food-img top-left">
+    <img src="https://i.pinimg.com/736x/82/aa/90/82aa9032f08600aa80597d361ca83865.jpg" alt="Chicken and Rice" class="food-img main-dish">
+    <img src="https://i.pinimg.com/736x/fc/3d/d8/fc3dd8e101ee74115f0377a58e88ff6b.jpg" alt="Soup Bowl" class="food-img top-right-bowl">
+    <img src="https://i.pinimg.com/1200x/36/7f/dc/367fdcc927db80ed05da599145416831.jpg" alt="Berries and Avocado" class="food-img bottom-left-berries">
+    <img src="https://i.pinimg.com/736x/08/c7/0d/08c70d473888e35bd1c4cd9d1d2983d7.jpg" alt="Large Salad Plate" class="food-img large-salad-plate">
+    <img src="https://i.pinimg.com/1200x/a6/b0/48/a6b0482fe9ccf6121f34450899dbc644.jpg" alt="Tiny Plate" class="food-img tiny-top-right">
+    <img src="https://i.pinimg.com/1200x/a5/8b/03/a58b03c89756a24b7f37b565a5494b0c.jpg" alt="Tiny Plate" class="food-img tiny-far-right">
+  </div>
+
+  <div class="hero-content">
+    <h1>Eat Clean,</h1>
+    <h2>Feel Great</h2>
+    
+    <div class="search-bar-wrapper">
+      <input 
+        type="text" 
+        placeholder="Menu"
+        [(ngModel)]="searchQuery"
+        (keydown.enter)="onSearch()">
+      <button (click)="onSearch()">
+        <i class="fas fa-search"></i> </button>
+    </div>
+  </div>
+
+</section>

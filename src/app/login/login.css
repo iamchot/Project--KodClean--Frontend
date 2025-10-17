@@ -1,0 +1,179 @@
+/* ------------------- Root Variables ------------------- */
+:root {
+    --primary-blue: #3d5aed;
+    --button-hover: #2e44b7;
+    --card-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    --border-color: #ddd;
+    --background-color: #f7f8fa;
+    --text-color: #222;
+    --input-bg: #fff;
+}
+
+/* ------------------- Global Reset ------------------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* ------------------- Container ------------------- */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+/* ------------------- Login Card ------------------- */
+.login-card {
+    background-color: rgb(245, 239, 239);
+    padding: 40px;
+    border-radius: 16px;
+    border: 0.2px solid black;
+    box-shadow: var(--card-shadow);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 1px;
+}
+
+.login-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.login-title {
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: var(--text-color);
+}
+
+/* ------------------- Form ------------------- */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    text-align: left;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #292828;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: var(--input-bg);
+    border: 1px solid black;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: all 0.25s ease;
+}
+
+.form-input:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 6px rgba(61, 90, 237, 0.35);
+    outline: none;
+}
+
+/* ------------------- Forgot Password ------------------- */
+.forgot-password-container {
+    text-align: right;
+    margin-top: -8px;
+    margin-bottom: 20px;
+}
+
+.forgot-password-link {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.forgot-password-link:hover {
+    color: var(--button-hover);
+    text-decoration: underline;
+}
+
+/* ------------------- Login Button ------------------- */
+.login-button {
+    width: 100%;
+    padding: 14px;
+    background-color:rgb(1, 131, 42);
+    color: rgb(255, 255, 255);
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.login-button:hover {
+    background-color: rgb(1, 131, 42);
+    transform: translateY(-2px);
+}
+
+.login-button:disabled {
+    background-color: #a0a0a0;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ------------------- Sign Up Prompt ------------------- */
+.signup-prompt {
+    margin-top: 25px;
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+}
+
+.signup-link {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.signup-link:hover {
+    color: var(--button-hover);
+    text-decoration: underline;
+}
+
+/* ------------------- Responsive ------------------- */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 28px 20px;
+    }
+
+    .login-title {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    .login-button {
+        padding: 12px;
+        font-size: 1rem;
+    }
+}

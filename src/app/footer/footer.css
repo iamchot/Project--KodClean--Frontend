@@ -1,0 +1,152 @@
+/* Container หลักของ Footer */
+footer {
+    background-color: #F0F0F0; /* สีเทาอ่อนสำหรับ Top Footer */
+    color: #1A1A2E;
+    font-size: 14px;
+}
+
+/* TOP FOOTER (Grid Layout) */
+.top-footer {
+    display: grid;
+    /* แบ่ง 3 คอลัมน์ โดยให้คอลัมน์กลางกว้างกว่า */
+    grid-template-columns: 1.5fr 2fr 1.5fr; 
+    gap: 40px;
+    padding: 60px 80px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* คอลัมน์หลัก
+.footer-col {
+    /* จัดเรียงข้อความให้ชิดซ้าย/กลาง/ขวา ตาม Layout */
+
+
+/* Logo */
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1A1A2E;
+}
+
+.logo-icon {
+    color: #4CAF50; /* สีเขียวสำหรับไอคอน */
+    margin-left: 5px;
+}
+
+/* Subscription Form */
+.subscription-col {
+    /* จัดให้อยู่ตรงกลางคอลัมน์ */
+    justify-self: center; 
+    text-align: center;
+}
+
+.col-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.subscribe-form {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.subscribe-form input {
+    padding: 12px 15px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    font-size: 14px;
+    background-color: #E0E0E0; /* สีเทาเข้มกว่าพื้นหลัง */
+    width: 250px;
+}
+
+.subscribe-form button {
+    background-color: #38c172; /* สีเขียว */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.spam-text {
+    font-size: 12px;
+    color: #888;
+}
+
+.spam-text a {
+    color: #1A1A2E;
+    text-decoration: underline;
+}
+
+/* Important Links และ Social Media */
+.links-col {
+    text-align: right; /* จัดให้อยู่ชิดขวาตามภาพ */
+}
+
+.important-links {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+.important-links li {
+    margin-bottom: 5px;
+}
+
+.important-links a {
+    color: #1A1A2E;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.important-links a:hover {
+    color: #38c172;
+}
+
+/* Social Media Icons */
+.social-media {
+    display: flex;
+    justify-content: flex-end; /* ชิดขวา */
+    gap: 15px;
+}
+
+.social-media a {
+    color: white;
+    background-color: #1A1A2E; /* สีดำ/น้ำเงินเข้ม */
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.social-media a:hover {
+    background-color: #38c172; /* เปลี่ยนเป็นสีเขียวเมื่อโฮเวอร์ */
+}
+
+/* BOTTOM FOOTER (Dark Bar) */
+.bottom-footer {
+    background-color: #0d1222; /* สีดำเข้มตามภาพ */
+    color: #ddd;
+    padding: 15px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.policy-links a {
+    color: #ddd;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.2s;
+}
+
+.policy-links a:hover {
+    color: white;
+}

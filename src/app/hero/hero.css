@@ -1,0 +1,211 @@
+.hero-container {
+    display: grid;
+    /* Grid Area ทำให้เนื้อหาและรูปภาพซ้อนทับกันได้ */
+    grid-template-columns: 1fr; 
+    grid-template-rows: 1fr;
+    max-width: 1400px;
+    margin: 0 auto; /* จัดกึ่งกลาง */
+    overflow: hidden; /* ซ่อนส่วนที่เกินขอบ */
+    height: 600px; /* กำหนดความสูงเพื่อให้มีพื้นที่สำหรับรูปภาพ */
+    position: relative; /* สำคัญสำหรับรูปภาพที่ position absolute */
+    background-color: #d3f3dd; /* พื้นหลังขาว */
+    border-radius: 10px; /* ขอบโค้งมนของ Container ทั้งหมด */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* เพิ่มเงาเล็กน้อย */
+}
+
+/* ทำให้ Content และ Visuals อยู่ในตำแหน่งเดียวกันใน Grid */
+.hero-visuals, .hero-content {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+/* -------------------- Content (ข้อความและ Search Bar) -------------------- */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* จัดกึ่งกลางแนวตั้ง */
+    align-items: flex-start; /* ชิดซ้าย */
+    padding-left: 100px;
+    z-index: 10; /* ให้ข้อความอยู่ด้านบนสุด */
+    position: relative;
+}
+
+.hero-content h1 {
+    font-size: 4.5em; /* ขนาดตัวอักษร "Eat Clean," */
+    font-weight: 800;
+    color: #1A1A2E;
+    margin-bottom: -15px; /* ลดช่องว่างระหว่างสองบรรทัด */
+    line-height: 1; /* ลดความสูงบรรทัด */
+}
+
+.hero-content h2 {
+    font-size: 4.5em; /* ขนาดตัวอักษร "Feel Great" */
+    font-weight: 800;
+    color: #38c172; /* สีเขียว */
+    margin-bottom: 40px; /* ระยะห่างจาก Search Bar */
+    line-height: 1; /* ลดความสูงบรรทัด */
+}
+
+/* Search Bar */
+.search-bar-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 400px; /* ความกว้างของ Search Bar */
+    border-radius: 50px; /* ทำให้โค้งมน */
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: white; /* พื้นหลัง Search Bar */
+    border: 1px solid #ddd;
+}
+
+.search-bar-wrapper input {
+    flex-grow: 1;
+    padding: 15px 20px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #333;
+}
+
+.search-bar-wrapper input::placeholder {
+    color: #aaa;
+}
+
+.search-bar-wrapper button {
+    background-color: #38c172; /* สีเขียว */
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+    display: flex; /* เพื่อจัดไอคอนตรงกลาง */
+    align-items: center;
+    justify-content: center;
+}
+
+.search-bar-wrapper button i {
+    color: white; /* สีไอคอน */
+}
+
+.search-bar-wrapper button:hover {
+    background-color: #32a363; /* เข้มขึ้นเมื่อโฮเวอร์ */
+}
+
+/* -------------------- Visuals (รูปภาพและ Shape สีเขียว) -------------------- */
+.hero-visuals {
+    position: relative;
+    /* Hero Visuals จะครอบเต็มพื้นที่ของ .hero-container */
+    width: 100%;
+    height: 100%;
+}
+
+/* พื้นหลังสีเขียวขนาดใหญ่ */
+.green-main-shape {
+    position: absolute;
+    top: 0;
+    left: 45%; /* เริ่มจากกลางไปทางขวา */
+    width: 65%; /* ความกว้างของพื้นที่สีเขียว */
+    height: 100%;
+    background-color: #38c172; /* สีเขียวอ่อน */
+    /* ใช้ clip-path เพื่อสร้างรูปทรงโค้งตามภาพ */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); /* เริ่มต้นเป็นสี่เหลี่ยม */
+    /* เพิ่มส่วนโค้งด้วย bezier curve หรือใช้ SVG/รูปภาพจริงจะแม่นยำกว่า */
+    /* สำหรับโค้ดนี้ จะทำแค่เป็นบล็อกสีเขียวขนาดใหญ่ก่อน */
+    z-index: 1;
+    transform: skewX(-15deg) translateX(100px); /* เอียงและขยับเพื่อให้ดู dynamic */
+    transform-origin: bottom right; /* หมุนจากขวาล่าง */
+}
+
+/* พื้นหลังสีเขียวโค้งด้านขวา */
+.green-curved-shape {
+    position: absolute;
+    bottom: 0;
+    top:220px;
+    right: -220px; /* เลื่อนออกไปนอกกรอบทางขวา */
+    width: 600px; /* ความกว้างของรูปทรง */
+    height: 500px; /* ความสูงของรูปทรง */
+    border-radius: 20px;
+    background-color: #ffffff; /* สีเขียวอ่อน */
+    transform: rotate(5deg); /* หมุนเล็กน้อย */
+    z-index: 2; /* ให้อยู่ระหว่างรูปภาพบางรูปกับรูปภาพอื่น */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+
+/* รูปภาพอาหาร - จัดวางด้วย Absolute Positioning */
+.food-img {
+    position: absolute;
+    object-fit: cover; /* ครอบคลุมพื้นที่รูปภาพ */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* เงารูปภาพ */
+    z-index: 4; /* ให้รูปภาพอยู่ด้านบนของพื้นหลังสีเขียว */
+    border-radius: 8px; /* ขอบมนเล็กน้อย (ยกเว้นรูปวงกลม) */
+}
+
+/* รูปบนซ้าย (Pancakes/Pizza) */
+.food-img.top-left {
+    width: 250px;
+    height: 250px;
+    top: -70px; /* เลื่อนขึ้นไปนอกกรอบ */
+    left: -70px; /* เลื่อนไปทางซ้ายนอกกรอบ */
+    border-radius: 50%; /* เป็นวงกลม */
+}
+
+/* รูปไก่กับข้าว (Main dish) */
+.food-img.main-dish {
+    width: 300px;
+    height: 300px;
+    top: 150px;
+    left: 650px; /* จัดตำแหน่งตามภาพ */
+    border-radius: 50%; /* เป็นวงกลม */
+}
+
+/* รูปถ้วยซุป/อาหารจานเล็กบนขวา */
+.food-img.top-right-bowl {
+    width: 150px;
+    height: 150px;
+    top: 50px;
+    right: 320px; /* จัดตำแหน่งตามภาพ */
+    border-radius: 50%; /* เป็นวงกลม */
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+
+/* รูปผลไม้/อะโวคาโด ล่างซ้าย */
+.food-img.bottom-left-berries {
+    width: 100px;
+    height: 100px;
+    bottom: 50px;
+    left: 20px; /* จัดตำแหน่งตามภาพ */
+    border-radius: 50%; /* เป็นวงกลม */
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+
+/* รูปสลัดใหญ่ขวาล่าง */
+.food-img.large-salad-plate {
+    width: 400px;
+    height: 400px;
+    bottom: -50px; /* เลื่อนลงไปนอกกรอบ */
+    right: -50px; /* เลื่อนไปทางขวานอกกรอบ */
+    border-radius: 20px; /* ขอบมน */
+    z-index: 3; /* ให้อยู่ข้างใต้รูปทรงโค้งสีเขียวบางส่วน */
+    transform: rotate(5deg); /* หมุนเล็กน้อย */
+}
+
+/* รูปเล็กๆ บนขวาบนสุด */
+.food-img.tiny-top-right {
+    width: 80px;
+    height: 80px;
+    top: 20px;
+    right: 180px;
+    border-radius: 50%;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+/* รูปเล็กๆ ขวาบนสุด */
+.food-img.tiny-far-right {
+    width: 80px;
+    height: 80px;
+    top: 80px;
+    right: 50px;
+    border-radius: 50%;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}

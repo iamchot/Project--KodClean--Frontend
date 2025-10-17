@@ -1,0 +1,31 @@
+
+<header class="main-header">
+  
+  <div class="left-group">
+      <div class="logo" [routerLink]="'/'">
+          KodClean<span class="logo-icon">🍴</span>
+      </div>
+
+<nav class="main-nav">
+  <ul>
+    <li *ngFor="let link of navLinks">
+      <a
+  [routerLink]="link.route"
+  routerLinkActive="active-link"
+  [routerLinkActiveOptions]="{ exact: true }"
+>
+  {{ link.label }}
+</a>
+    </li>
+  </ul>
+</nav>
+
+  </div>
+
+<div class="user-actions">
+    <a [routerLink]="'/login'" class="login-signup-btn">
+          <i class="fas fa-user-circle"></i> Login/Signup
+    </a>
+</div>
+
+</header>

@@ -1,0 +1,106 @@
+<div class="recipe-section-container">
+    <!-- หัวข้อส่วนนี้ -->
+    <h2 class="section-title">Top Recipes <span class="highlight-green">of the day</span></h2>
+    
+    <!-- Grid Container สำหรับการ์ดสูตรอาหาร -->
+    <div class="recipe-grid">
+        
+        <!-- 
+            @for loop: วนซ้ำข้อมูลใน Array 'data' 
+            ใช้ 'track item.title' เพื่อช่วยให้ Angular จัดการ DOM ได้อย่างมีประสิทธิภาพ 
+            และใช้ 'let i = $index' เพื่อรับค่า index (0, 1, 2)
+        -->
+        @for (item of data; track item.title; let i = $index) {
+            
+            <div class="recipe-card">
+                
+                <!-- 1. Ribbon (ใช้ rank จาก item.rank) -->
+                <div class="rank-ribbon" [attr.data-rank]="item.rank">
+                    <!-- 💡 เนื่องจากเราไม่มีไฟล์ริบบิ้นจริง เราจะใช้ตัวเลขแทน หรือใช้ SVG ง่ายๆ -->
+                    <span class="rank-number">{{ item.rank }}</span>
+                </div>
+
+                <!-- 2. รูปภาพสูตรอาหาร -->
+                <div class="recipe-image-wrapper">
+                    <!-- ใช้ Property Binding [src] เพื่อดึง URL รูปภาพจากข้อมูล -->
+                    <img [src]="item.imageUrl" [alt]="item.title">
+                </div>
+
+                <!-- 3. รายละเอียดด้านล่าง (ซ้อนทับบนรูปภาพ) -->
+                <div class="recipe-details">
+                    <h3 class="recipe-title">{{ item.title }}</h3>
+                    
+                    <!-- 4. Rating (จำลองค่า rating เป็น 4.5 ตามภาพตัวอย่าง) -->
+                    <div class="rating">
+                        <span class="rating-value">4.5⭐</span>
+                        <div class="stars">
+                            <!-- 💡 จำลองดาว 4.5 ดวง -->
+                            <i class="fas fa-star full"></i>
+                            <i class="fas fa-star full"></i>
+                            <i class="fas fa-star full"></i>
+                            <i class="fas fa-star full"></i>
+                            <i class="fas fa-star-half-alt half"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        }
+        
+        @empty {
+            <p class="no-recipes-message">No recipes found.</p>
+        }
+    </div>
+
+<div class="popular-menu-container">
+        <h2 class="section-title popular-title">Popular Menu</h2>
+        
+        <!-- Grid Container สำหรับ Popular Menu: 6 คอลัมน์ -->
+        <div class="recipe-grid popular-menu-grid">
+            <!-- วนซ้ำข้อมูล Popular Menu (6 รายการ) -->
+            @for (item of popularMenuData; track item.title; let i = $index) {
+                
+                <div class="recipe-card light-theme">
+                    
+                    <div class="recipe-image-wrapper light-theme-img">
+                        <img [src]="item.imageUrl" [alt]="item.title">
+                    </div>
+
+                    <!-- รายละเอียดด้านล่าง (สีอ่อน) -->
+                    <div class="recipe-details-light">
+                        <h3 class="recipe-title-light">{{ item.title }}</h3>
+                        
+                        <!-- Views แทน Rating -->
+                        <div class="views-info">
+                            <!-- 💡 ใช้ไอคอนตาสำหรับ Views (Font Awesome) -->
+                            <i class="fas fa-eye views-icon"></i> 
+                            <span class="views-count">{{ item.views }}</span>
+                        </div>
+                    </div>
+                </div>
+                
+            }
+            @empty {
+                <p class="no-recipes-message">No popular menu items found.</p>
+            }
+        </div>
+    </div>
+    <!-- -------------------- 3. CTA BANNER: Stuck on what to cook? -------------------- -->
+    <div class="cta-banner">
+        <div class="cta-content">
+            <!-- Badge คำถามด้านบน -->
+            <!-- <div class="cta-badge">Stuck on what to cook?</div> -->
+            
+            <h3 class="cta-heading">
+                Let us help you pick the perfect recipe.
+            </h3>
+            
+            <!-- ปุ่ม CTA -->
+            <button class="cta-button">
+                Start here!
+            </button>
+        </div>
+        <!-- รูปภาพพื้นหลัง (จะถูกกำหนดใน CSS) -->
+    </div>
+</div>
+

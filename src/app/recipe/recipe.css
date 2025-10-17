@@ -1,0 +1,282 @@
+/* -------------------- General Layout -------------------- */
+.recipe-section-container {
+    max-width: 1200px;
+    margin: 60px auto; /* เพิ่มระยะห่างด้านบน/ล่าง */
+    padding: 0 20px;
+}
+
+.section-title {
+    font-size: 2.5em;
+    font-weight: 800;
+    color: #1A1A2E;
+    margin-bottom: 30px;
+}
+
+.highlight-green {
+    color: #38c172; /* สีเขียวหลัก */
+}
+
+/* -------------------- Grid Layout -------------------- */
+.recipe-grid {
+    display: grid;
+    /* แบ่งเป็น 3 คอลัมน์ขนาดเท่ากัน */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; /* ระยะห่างระหว่างการ์ด */
+}
+
+/* -------------------- Recipe Card Styles -------------------- */
+.recipe-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    /* ใช้สีพื้นหลังเข้มเพื่อตัดกับรูปภาพ */
+    background-color: #1A1A2E; 
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.recipe-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* รูปภาพ */
+.recipe-image-wrapper {
+    height: 350px; /* ความสูงของรูปภาพ */
+    overflow: hidden;
+    position: relative;
+}
+
+.recipe-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ครอบคลุมพื้นที่ */
+    display: block;
+    filter: brightness(0.9); /* ทำให้รูปภาพมืดลงเล็กน้อย */
+}
+
+/* -------------------- Details (Title & Rating) -------------------- */
+.recipe-details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px 20px;
+    color: white;
+    z-index: 10;
+    /* เพิ่ม Gradient เพื่อให้ข้อความอ่านง่ายขึ้น */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+}
+
+.recipe-title {
+    font-size: 1.3em;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* Rating */
+.rating {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* ชิดขวาเหมือนในรูปภาพ */
+}
+
+.rating-value {
+    font-size: 1em;
+    font-weight: 700;
+    margin-right: 5px;
+}
+
+.stars i {
+    color: gold; /* สีดาว */
+    font-size: 0.9em;
+}
+
+/* -------------------- Rank Ribbon -------------------- */
+.rank-ribbon {
+    position: absolute;
+    top: 0;
+    right: 20px; /* เว้นระยะจากขอบขวา */
+    width: 50px; 
+    height: 70px;
+    background-color: #0d47a1; /* สีน้ำเงินเข้ม */
+    z-index: 20;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%); /* ตัดขอบให้เป็นรูป Ribbon */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rank-number {
+    font-size: 1.2em;
+    font-weight: 800;
+    color: white;
+    padding-top: 5px; /* จัดตำแหน่งตัวเลขให้อยู่ตรงกลางของริบบิ้น */
+}
+/* -------------------- Grid Layout -------------------- */
+
+/* 💡 Grid สำหรับ Popular Menu: 6 คอลัมน์ */
+.popular-menu-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px; /* ลด gap ลงสำหรับ 6 คอลัมน์ */
+}
+
+/* -------------------- 2. Light Theme (Popular Menu) -------------------- */
+.popular-title {
+    margin-top: 60px; /* เว้นระยะห่างจากส่วน Top Recipes */
+}
+
+.recipe-card.light-theme {
+    background-color: #f7f7f7; /* พื้นหลังสีอ่อน */
+}
+
+/* รูปภาพ (Light Theme) */
+.recipe-card.light-theme .recipe-image-wrapper {
+    height: 180px; /* รูปภาพสั้นลง */
+    overflow: hidden;
+}
+
+.recipe-card.light-theme .recipe-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(1); /* รูปภาพสว่างปกติ */
+    border-radius: 10px 10px 0 0; 
+}
+
+/* รายละเอียด (Light Theme - อยู่ด้านล่างรูปภาพ) */
+.recipe-details-light {
+    padding: 10px 8px;
+    color: #1A1A2E;
+    text-align: left;
+    padding-bottom: 15px; 
+}
+
+.recipe-title-light {
+    font-size: 1em;
+    font-weight: 600;
+    margin-bottom: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* ตัดคำถ้าชื่อยาวเกินไป */
+}
+
+.views-info {
+    display: flex;
+    align-items: center;
+    color: #888;
+    font-size: 0.85em;
+    font-weight: 500;
+}
+
+.views-icon {
+    margin-right: 5px;
+    font-size: 0.8em;
+}
+
+/* -------------------- Responsive for Popular Menu -------------------- */
+@media (max-width: 1024px) {
+    .popular-menu-grid {
+        /* Tablet: 3 คอลัมน์ */
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .popular-menu-grid {
+        /* Mobile: 2 คอลัมน์สำหรับ Popular Menu */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    .recipe-card.light-theme .recipe-image-wrapper {
+        height: 150px;
+    }
+}
+
+/* -------------------- 3. CTA Banner -------------------- */
+.cta-banner {
+    width: 100%;
+    /* กำหนดความสูงตามรูปภาพตัวอย่าง */
+    height: 500px; 
+    margin-top: 60px;
+    margin-bottom: 60px;
+    border-radius: 20px;
+    overflow: hidden;
+    
+    /* รูปภาพพื้นหลังของ Chef */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                      url('https://www.jobschiangrai.com/storage/uploads/image/group-of-chefs-holding-plate-of-prepared-food.jpg'); /* 💡 URL รูปภาพตัวอย่าง */
+    background-size: cover;
+    background-position: center center;
+    background-blend-mode: multiply; /* ทำให้สีพื้นหลัง (ดำ) ผสมกับรูปภาพ */
+    
+    display: flex;
+    align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+    justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
+    text-align: center;
+}
+
+.cta-content {
+    color: white;
+    max-width: 600px;
+    padding: 20px;
+}
+
+/* Badge (Stuck on what to cook?) */
+.cta-badge {
+    background-color: white;
+    color: #1A1A2E;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cta-heading {
+    font-size: 3em;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* ปุ่ม CTA (สีเขียวหลัก) */
+.cta-button {
+    background-color: #38c172; /* สีเขียวหลัก */
+    color: white;
+    font-size: 1.2em;
+    font-weight: 700;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button:hover {
+    background-color: #2da461; /* สีเข้มขึ้นเมื่อ hover */
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cta-banner {
+        height: 400px;
+        margin: 40px auto;
+    }
+    .cta-heading {
+        font-size: 2em;
+    }
+    .cta-button {
+        padding: 12px 30px;
+        font-size: 1em;
+    }
+}
+

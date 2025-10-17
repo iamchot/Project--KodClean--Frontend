@@ -1,0 +1,57 @@
+<div class="signup-container">
+    <h1 class="signup-title">Sign up</h1>
+
+    <form class="signup-form" (ngSubmit)="onSubmit()">
+
+        <label for="name">Name</label>
+        <input 
+          type="text" 
+          id="name" 
+          name="name" 
+          required 
+          [(ngModel)]="formData.name">
+
+        <label for="email">Email</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          required 
+          [(ngModel)]="formData.email">
+
+        <label for="password">Password</label>
+        <input 
+          type="password" 
+          id="password" 
+          name="password" 
+          required 
+          [(ngModel)]="formData.password">
+
+        <label for="confirm-password">Confirm password</label>
+        <input 
+          type="password" 
+          id="confirm-password" 
+          name="confirmPassword" 
+          required 
+          [(ngModel)]="formData.confirmPassword">
+
+        <div class="food-category-section">
+            <label>Favorite Food Category</label>
+            <div class="category-buttons">
+                <button 
+                    type="button"
+                    *ngFor="let category of availableCategories"
+                    class="category-btn"
+                    [class.selected]="isCategorySelected(category)"
+                    (click)="toggleCategory(category)">
+                    {{ category }}
+                </button>
+            </div>
+        </div>
+
+        <button type="submit" class="signup-btn">Sign up</button>
+    </form>
+</div>
+<br>
+<br>
+<br>

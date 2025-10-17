@@ -1,0 +1,123 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f2f5; 
+    
+    /* 💥 โค้ดสำคัญสำหรับการจัดกึ่งกลางเต็มหน้าจอ 💥 */
+    display: flex;
+    justify-content: center; /* จัดกึ่งกลางแนวนอน */
+    align-items: center;    /* จัดกึ่งกลางแนวตั้ง */
+    min-height: 100vh;      /* กำหนดความสูงให้เต็มหน้าจอ */
+    margin-left:0;
+}
+
+/* Container Styling */
+.signup-container {
+    /* **สิ่งสำคัญ:** ต้องกำหนดความกว้าง (width) ที่แน่นอน */
+    width: 350px; 
+    /* หากใช้ display: flex บน body แล้ว ไม่ต้องใช้ margin: auto อีก */
+    
+    padding: 30px 20px;
+    background-color: white;
+    border: 2px solid #070707; 
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: auto;
+}
+
+/* Title Styling */
+.signup-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+/* Form Layout and Labels */
+.signup-form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Input Fields (Name, Email, Password) */
+.signup-form input {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    /* ขอบโค้งมากตามภาพ */
+    border-radius: 20px; 
+    box-sizing: border-box; 
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.signup-form input:focus {
+    border-color: #007bff;
+}
+
+/* Category Section */
+.food-category-section {
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+.category-buttons {
+    display: flex;
+    flex-wrap: wrap; /* ทำให้ปุ่มขึ้นบรรทัดใหม่เมื่อเต็ม */
+    gap: 8px; 
+    margin-top: 10px;
+}
+
+.category-btn {
+    padding: 8px 15px;
+    /* ขอบสีเข้มสำหรับปุ่มที่ยังไม่ถูกเลือก */
+    border: 1px solid #333; 
+    border-radius: 20px;
+    background-color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+/* Style for SELECTED category button */
+.category-btn.selected {
+    /* เปลี่ยนสีเป็นสีฟ้าและตัวอักษรเป็นสีขาวเมื่อถูกเลือก */
+    background-color: #007bff; 
+    color: white;
+    border-color: #007bff;
+    font-weight: bold;
+}
+
+/* Hover effects */
+.category-btn:hover:not(.selected) {
+    background-color: #f0f0f0;
+}
+.category-btn.selected:hover {
+    background-color: #0056b3; /* สีฟ้าเข้มขึ้นเล็กน้อยเมื่อถูกเลือกและเอาเมาส์ชี้ */
+}
+
+
+/* Main Sign Up Button */
+.signup-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 25px;
+    border: none;
+    /* ขอบโค้งเต็มที่สำหรับปุ่มหลัก */
+    border-radius: 25px; 
+    /* สีน้ำเงินม่วงตามภาพ */
+    background-color: #4800ff; 
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.signup-btn:hover {
+    background-color: #3a00cc;
+}

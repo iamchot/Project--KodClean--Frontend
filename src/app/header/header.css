@@ -1,0 +1,94 @@
+/* Container หลักของ Header */
+.main-header {
+  display: flex; 
+  justify-content: space-between; /* กระจายองค์ประกอบไปที่ซ้ายสุดและขวาสุด */
+  align-items: center; 
+  padding: 15px 50px; 
+  background-color: #ffffff; 
+  /* ลบ box-shadow ออกเพื่อให้ดูเรียบตามภาพล่าสุด */
+  position: sticky; 
+  top: 0;
+  z-index: 1000; 
+}
+
+/* กลุ่มทางซ้าย: Logo และ Navigation */
+.left-group {
+    display: flex;
+    align-items: center;
+    gap: 40px; /* ระยะห่างระหว่าง Logo กับ Navigation */
+}
+
+/* การจัดรูปแบบ Logo (ปรับให้มีไอคอนช้อนส้อมตามภาพ) */
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 28px; /* ปรับขนาดให้ใหญ่ขึ้นเล็กน้อย */
+  font-weight: 700; 
+  color: #1A1A2E; /* สีน้ำเงินเข้ม/ดำสำหรับโลโก้ */
+  cursor: pointer; 
+}
+
+.logo img {
+    /* ถ้าใช้รูปภาพโลโก้ */
+    height: 30px; 
+    margin-right: 8px;
+}
+
+/* ส่วนของ Navigation */
+.main-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px; /* ลดระยะห่างระหว่างเมนู */
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  padding: 8px 15px; /* เพิ่ม Padding เพื่อให้คลิกง่ายขึ้น */
+  transition: color 0.3s, background-color 0.3s, border-radius 0.3s;
+  font-weight: 500;
+  border-radius: 6px;
+}
+
+
+/* สไตล์สำหรับ Active Link/Home Link (สีเขียว) */
+.main-nav a.active-link {
+  background-color: #38c172; /* สีเขียวเข้มตามภาพ */
+  color: white;
+  font-weight: 600;
+  padding: 8px 15px;
+}
+
+.main-nav a:not(.active-link):hover {
+  color: #38c172; /* สีเขียวเมื่อโฮเวอร์เมนูอื่น */
+}
+
+
+/* ปุ่ม Login/Signup */
+.login-signup-btn {
+  /* ใช้สีพื้นหลังสีดำเข้มตามภาพ */
+  background-color: #0d1222; 
+  color: white;
+  border: none;
+  padding: 10px 25px; /* เพิ่ม Padding เพื่อให้ปุ่มยาวขึ้น */
+  border-radius: 30px; /* ทำให้ปุ่มโค้งมนมาก */
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s;
+}
+
+.login-signup-btn:hover {
+  background-color: #1a1a2e; /* เข้มขึ้นเล็กน้อยเมื่อโฮเวอร์ */
+}
+
+/* Icon (สมมติว่าใช้ Icon Library เช่น Angular Material หรือ Font Awesome) */
+.login-signup-btn i {
+    font-size: 18px; /* สำหรับไอคอนคน */
+}

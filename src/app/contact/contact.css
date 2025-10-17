@@ -1,0 +1,200 @@
+/* กำหนดค่าเริ่มต้น */
+:root {
+    --primary-green: #38c172; /* สีเขียวหลักของปุ่มและหัวข้อ */
+    --light-gray-border: #ddd;
+    --font-color: #333;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.contact-container {
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
+    
+    margin-left: auto;
+    margin-right: auto;
+   
+    margin: 0 auto; 
+}
+
+/* ------------------- หัวข้อหลัก ------------------- */
+.main-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--font-color);
+}
+
+.us{
+    color: var(--primary-green); /* 'Us' เป็นสีเขียว */
+}
+
+/* ------------------- Wrapper สำหรับจัดวาง ------------------- */
+.contact-content-wrapper {
+    display: flex;
+    gap: 40px; /* ระยะห่างระหว่างส่วนซ้าย (ฟอร์ม) และขวา (ที่อยู่) */
+    flex-wrap: wrap; /* ให้ขึ้นบรรทัดใหม่เมื่อหน้าจอเล็ก */
+    justify-content: center;
+}
+
+/* ------------------- ส่วนซ้าย (ฟอร์มและแผนที่) ------------------- */
+.left-section {
+    flex: 2; /* ให้ส่วนฟอร์มกินพื้นที่มากกว่า */
+    min-width: 300px; /* ความกว้างขั้นต่ำ */
+}
+
+.map-image-container {
+    width: 100%;
+    height: 350px; /* กำหนดความสูงตามรูปภาพ */
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.map-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* ------------------- Contact Form ------------------- */
+.contact-form-card {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.form-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--light-gray-border);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    border-color: var(--primary-green);
+    outline: none;
+}
+
+.form-textarea {
+    resize: none;
+    height: 150px;
+}
+
+.send-button {
+    align-self: flex-start; /* จัดปุ่มไปทางซ้าย */
+    background-color: var(--primary-green);
+    color: white;
+    font-weight: 600;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.send-button:hover {
+    background-color: #32a862; /* สีเข้มขึ้นเมื่อ hover */
+}
+
+/* ------------------- ส่วนขวา (ข้อมูลที่อยู่) ------------------- */
+.right-section {
+    flex: 1; /* ให้ส่วนที่อยู่กินพื้นที่ที่เหลือ */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.address-block {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.address-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-green);
+    margin-bottom: 5px;
+}
+
+.role-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--font-color);
+}
+
+.description-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.contact-details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-details li {
+    font-size: 0.95rem;
+    color: var(--font-color);
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+/* ------------------- Responsive Layout ------------------- */
+@media (max-width: 900px) {
+    .contact-content-wrapper {
+        flex-direction: column; /* เรียงจากบนลงล่างเมื่อหน้าจอเล็ก */
+        gap: 20px;
+    }
+    
+    .left-section,
+    .right-section {
+        flex: auto;
+        min-width: 100%;
+    }
+}
