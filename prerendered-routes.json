@@ -1,0 +1,12 @@
+{
+  "routes": {
+    "/Project--KodClean--Frontend": {},
+    "/Project--KodClean--Frontend/about": {},
+    "/Project--KodClean--Frontend/categories": {},
+    "/Project--KodClean--Frontend/contact": {},
+    "/Project--KodClean--Frontend/favorites": {},
+    "/Project--KodClean--Frontend/login": {},
+    "/Project--KodClean--Frontend/recipes": {},
+    "/Project--KodClean--Frontend/signup": {}
+  }
+}
