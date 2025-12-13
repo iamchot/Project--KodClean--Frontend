@@ -1,0 +1,47 @@
+<div class="card-container">
+
+  <div *ngIf="!isExpanded" class="recipe-card-summary">
+    <img [src]="recipe.imageSrc" [alt]="recipe.title" class="recipe-image-summary" />
+    <div class="info-section-summary">
+      <h2>{{ recipe.title }}</h2>
+      <h4>Ingredients:</h4>
+      <ul>
+        <li *ngFor="let item of recipe.ingredients.slice(0, 3)">{{ item }}</li>
+        <li>...</li>
+      </ul>
+      <p class="rating">⭐ {{ recipe.rating }}/5</p>
+      
+      <button class="read-more-btn" (click)="toggleDetails()">Read more</button>
+    </div>
+  </div>
+
+  <div *ngIf="isExpanded" class="recipe-card-detailed">
+    <div class="detail-header">
+      <img [src]="recipe.imageSrc" [alt]="recipe.title" class="detail-image">
+      <h2>{{ recipe.title }}</h2>
+      <div class="rating">Average Rating : ({{ recipe.rating }}/5) ⭐⭐⭐⭐☆</div>
+    </div>
+    
+    <div class="detail-content">
+      <h3>Ingredients</h3>
+      <p>For the salad:</p>
+      <ul>
+        <li *ngFor="let item of recipe.ingredients">{{ item }}</li>
+      </ul>
+
+      <h3>How to Make {{ recipe.title }}</h3>
+      <div *ngFor="let step of recipe.steps">
+        <p><b>{{ step.title }}</b></p>
+        <ul>
+          <li *ngFor="let detail of step.details">{{ detail }}</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="detail-actions">
+      <div class="detail-actions">
+        <button class="btn-dark" (click)="onAddToFavorites()">❤️ Favorites</button>
+        <button class="btn-dark-outline" (click)="toggleDetails()">Read less</button>
+  </div>
+
+</div>

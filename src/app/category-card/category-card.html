@@ -1,0 +1,39 @@
+<div class="category-card-container">
+
+  <div *ngIf="!isExpanded" class="summary-view">
+    
+    <div class="card-left">
+      <img [src]="recipe.imageSrc" [alt]="recipe.title" class="card-image">
+      <h3 class="card-title">{{ recipe.title }}</h3>
+      <div class="card-rating">
+        ⭐ Average Rating : ({{ recipe.rating }}/5)
+      </div>
+    </div>
+    
+    <div class="card-right">
+      <div class="ingredients-box">
+        <ul>
+          <li *ngFor="let item of recipe.ingredients">{{ item }}</li>
+        </ul>
+      </div>
+      <button class="btn-read-more" (click)="toggleDetails()">Read more</button>
+    </div>
+  </div>
+
+  <div *ngIf="isExpanded" class="detailed-view">
+    <div class="detail-content">
+      <h3>How to Make {{ recipe.title }}</h3>
+      <div *ngFor="let step of recipe.steps">
+        <p><b>{{ step.title }}</b></p>
+        <ul>
+          <li *ngFor="let detail of step.details">{{ detail }}</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="detail-actions">
+      <button class="btn-read-less" (click)="toggleDetails()">Read less</button>
+    </div>
+  </div>
+
+</div>

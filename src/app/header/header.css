@@ -1,37 +1,35 @@
 /* Container หลักของ Header */
 .main-header {
-  display: flex; 
-  justify-content: space-between; /* กระจายองค์ประกอบไปที่ซ้ายสุดและขวาสุด */
-  align-items: center; 
-  padding: 15px 50px; 
-  background-color: #ffffff; 
-  /* ลบ box-shadow ออกเพื่อให้ดูเรียบตามภาพล่าสุด */
-  position: sticky; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background-color: #ffffff;
+  position: sticky;
   top: 0;
-  z-index: 1000; 
+  z-index: 1000;
 }
 
 /* กลุ่มทางซ้าย: Logo และ Navigation */
 .left-group {
-    display: flex;
-    align-items: center;
-    gap: 40px; /* ระยะห่างระหว่าง Logo กับ Navigation */
+  display: flex;
+  align-items: center;
+  gap: 40px;
 }
 
-/* การจัดรูปแบบ Logo (ปรับให้มีไอคอนช้อนส้อมตามภาพ) */
+/* การจัดรูปแบบ Logo */
 .logo {
   display: flex;
   align-items: center;
-  font-size: 28px; /* ปรับขนาดให้ใหญ่ขึ้นเล็กน้อย */
-  font-weight: 700; 
-  color: #1A1A2E; /* สีน้ำเงินเข้ม/ดำสำหรับโลโก้ */
-  cursor: pointer; 
+  font-size: 28px;
+  font-weight: 700;
+  color: #1A1A2E;
+  cursor: pointer;
 }
 
 .logo img {
-    /* ถ้าใช้รูปภาพโลโก้ */
-    height: 30px; 
-    margin-right: 8px;
+  height: 30px;
+  margin-right: 8px;
 }
 
 /* ส่วนของ Navigation */
@@ -40,41 +38,118 @@
   padding: 0;
   margin: 0;
   display: flex;
-  gap: 20px; /* ลดระยะห่างระหว่างเมนู */
+  gap: 20px;
+  align-items: center;
+}
+
+.main-nav li {
+  position: relative;
 }
 
 .main-nav a {
   text-decoration: none;
   color: #333;
   font-size: 16px;
-  padding: 8px 15px; /* เพิ่ม Padding เพื่อให้คลิกง่ายขึ้น */
+  padding: 8px 15px;
   transition: color 0.3s, background-color 0.3s, border-radius 0.3s;
   font-weight: 500;
   border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-
-/* สไตล์สำหรับ Active Link/Home Link (สีเขียว) */
+/* สไตล์สำหรับ Active Link */
 .main-nav a.active-link {
-  background-color: #38c172; /* สีเขียวเข้มตามภาพ */
+  background-color: #38c172;
   color: white;
   font-weight: 600;
   padding: 8px 15px;
 }
 
 .main-nav a:not(.active-link):hover {
-  color: #38c172; /* สีเขียวเมื่อโฮเวอร์เมนูอื่น */
+  color: #38c172;
 }
 
+/* === Dropdown Styles === */
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown-trigger {
+  cursor: pointer;
+  user-select: none;
+}
+
+.dropdown-icon {
+  font-size: 12px;
+  margin-left: 3px;
+  transition: transform 0.3s;
+}
+
+.dropdown-container:hover .dropdown-icon {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menu - ลงมาข้างล่างแนวตั้ง */
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px); /* เพิ่มระยะห่างจากปุ่ม Categories */
+  left: 0;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 8px 0;
+  min-width: 180px;
+  list-style: none;
+  z-index: 1001;
+  animation: dropdownFadeIn 0.2s ease-in-out;
+  
+  /* ป้องกันไม่ให้เมนูไปข้างๆ */
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-menu li {
+  padding: 0;
+  width: 100%;
+}
+
+.dropdown-menu a {
+  display: block;
+  width: 100%;
+  padding: 10px 20px;
+  color: #333;
+  text-decoration: none;
+  font-size: 15px;
+  border-radius: 0;
+  transition: background-color 0.2s, color 0.2s;
+  box-sizing: border-box;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f8f9fa;
+  color: #38c172;
+}
 
 /* ปุ่ม Login/Signup */
 .login-signup-btn {
-  /* ใช้สีพื้นหลังสีดำเข้มตามภาพ */
-  background-color: #0d1222; 
+  background-color: #0d1222;
   color: white;
   border: none;
-  padding: 10px 25px; /* เพิ่ม Padding เพื่อให้ปุ่มยาวขึ้น */
-  border-radius: 30px; /* ทำให้ปุ่มโค้งมนมาก */
+  padding: 10px 25px;
+  border-radius: 30px;
   cursor: pointer;
   font-weight: 500;
   font-size: 16px;
@@ -82,13 +157,13 @@
   align-items: center;
   gap: 8px;
   transition: background-color 0.3s;
+  text-decoration: none;
 }
 
 .login-signup-btn:hover {
-  background-color: #1a1a2e; /* เข้มขึ้นเล็กน้อยเมื่อโฮเวอร์ */
+  background-color: #1a1a2e;
 }
 
-/* Icon (สมมติว่าใช้ Icon Library เช่น Angular Material หรือ Font Awesome) */
 .login-signup-btn i {
-    font-size: 18px; /* สำหรับไอคอนคน */
+  font-size: 18px;
 }

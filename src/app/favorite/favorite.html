@@ -1,0 +1,19 @@
+<div class="favorites-page">
+
+  <h1 class="favorites-title">
+    My <span class="highlight-green">Favorites</span>
+  </h1>
+
+  <div class="favorites-list">
+    <app-favorite-card 
+      *ngFor="let recipe of favoriteRecipes$ | async" 
+      [recipe]="recipe"
+      (remove)="removeFavorite($event)">
+    </app-favorite-card>
+
+    <div *ngIf="(favoriteRecipes$ | async)?.length === 0" class="no-favorites">
+      You haven't added any favorites yet.
+    </div>
+  </div>
+
+</div>

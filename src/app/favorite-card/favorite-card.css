@@ -1,0 +1,103 @@
+/* คอนเทนเนอร์หลักของการ์ด 1 ใบ */
+.favorite-card-container {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+  background-color: #ffffff;
+}
+
+/* --- 1. สไตล์มุมมองย่อ (Summary) --- */
+.favorite-card-summary {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 20px;
+  position: relative;
+  padding: 24px;
+}
+.remove-btn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  color: #555;
+  font-size: 1.5rem;
+  line-height: 28px;
+  cursor: pointer;
+  padding: 0;
+}
+.card-left {
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
+  padding-top: 30px; 
+}
+.card-image {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+}
+.card-right {
+  flex: 2;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ingredients-box {
+  border: 1px solid #ececec;
+  border-radius: 8px;
+  padding: 20px;
+  height: 100%;
+  margin-bottom: 15px;
+}
+.btn-read-more {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-end; 
+}
+
+/* --- 2. สไตล์มุมมองเต็ม (Detailed) --- */
+.recipe-card-detailed {
+  padding: 25px;
+}
+.detail-header {
+  text-align: center;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 15px;
+}
+.detail-image {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+}
+.detail-content { margin-top: 20px; }
+.detail-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px solid #f0f0f0;
+}
+.btn-dark, .btn-dark-outline {
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1px solid #343a40;
+}
+.btn-dark {
+  background-color: #343a40;
+  color: white;
+}
+.btn-dark-outline {
+  background-color: white;
+  color: #343a40;
+}

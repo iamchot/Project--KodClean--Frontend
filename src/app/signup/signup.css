@@ -121,3 +121,23 @@ body {
 .signup-btn:hover {
     background-color: #3a00cc;
 }
+
+.signup-prompt-outside {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 15px;
+  color: #333;
+}
+
+.signup-prompt-outside .signup-link {
+  color: #4800ff;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 4px;
+  transition: color 0.2s;
+}
+
+.signup-prompt-outside .signup-link:hover {
+  color: #3a00cc;
+  text-decoration: underline;
+}

@@ -1,0 +1,37 @@
+.categories-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+.page-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #1A1A2E;
+  margin-bottom: 30px;
+}
+.category-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #28a745; /* สีเขียว */
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 10px;
+}
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* ระยะห่างระหว่างการ์ด */
+}
+.no-recipes {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+.no-recipes p {
+  font-size: 1.2rem;
+  color: #6c757d;
+  margin: 0;
+}
+

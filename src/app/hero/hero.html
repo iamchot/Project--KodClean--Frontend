@@ -1,3 +1,5 @@
+
+
 <section class="hero-container">
   
   <div class="hero-visuals">
@@ -18,15 +20,16 @@
     <h1>Eat Clean,</h1>
     <h2>Feel Great</h2>
     
-    <div class="search-bar-wrapper">
-      <input 
-        type="text" 
-        placeholder="Menu"
-        [(ngModel)]="searchQuery"
-        (keydown.enter)="onSearch()">
-      <button (click)="onSearch()">
-        <i class="fas fa-search"></i> </button>
-    </div>
+   <div class="search-bar-wrapper">
+  <input 
+    type="text" 
+    placeholder="Menu"
+    [(ngModel)]="searchQuery"
+    (keydown.enter)="onSearch()">
+  <button (click)="onSearch()">
+    <fa-icon icon="search"></fa-icon> 
+  </button>
+</div>
   </div>
 
 </section>

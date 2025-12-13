@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-about',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './about.html',
-  styleUrl: './about.css'
+  styleUrls: ['./about.css']
 })
-export class About {
-
+export class AboutComponent {
+  // ไฟล์นี้ยังไม่จำเป็นต้องมี Logic อะไรครับ
 }

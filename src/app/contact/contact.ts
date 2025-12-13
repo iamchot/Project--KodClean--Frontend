@@ -47,4 +47,5 @@ export class Contact{ // ⚠️ เปลี่ยนชื่อ Class เป�
             location: 'RMUTT',
         },
     ];
+    
 }

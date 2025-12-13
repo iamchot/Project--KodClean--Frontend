@@ -1,54 +1,51 @@
-// login.component.ts
-
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // 💡 ต้องใช้ FormsModule สำหรับ Two-way data binding (ngModel)
+import { FormsModule, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
+import { RouterModule } from '@angular/router';
 
-// 1. Interface
-// ⚠️ เปลี่ยนชื่อเป็น LoginData เพื่อไม่ให้ซ้ำกับชื่อ Class 'Login' (ถ้าไม่เปลี่ยนจะเกิด Error TS2395)
 export interface LoginData {
-    usernameOrEmail: string;
-    password: string;
+  usernameOrEmail: string;
+  password: string;
 }
 
 @Component({
   selector: 'app-login',
-  // 💡 เพิ่ม FormsModule ใน imports เพื่อให้ใช้ ngModel ได้
-  imports: [FormsModule], 
-  standalone: true, // สมมติว่าเป็น Standalone Component
+  standalone: true,
+  imports: [FormsModule,RouterModule],
   templateUrl: './login.html',
-  styleUrl: './login.css'
+  styleUrls: ['./login.css']
 })
-// 2. Component Class
-export class Login { // ⚠️ เปลี่ยนชื่อ Class เป็น LoginComponent
-    
-    // 3. กำหนด Model สำหรับ Data Binding (ค่าเริ่มต้นของฟอร์ม)
-    loginModel: LoginData = {
-        usernameOrEmail: '',
-        password: ''
-    };
+export class Login {
+  loginModel: LoginData = { usernameOrEmail: '', password: '' };
+  loading = false;
+  loginFailed = false;
 
-    /**
-     * ฟังก์ชันที่ถูกเรียกเมื่อฟอร์มถูก Submit ใน Angular Template
-     */
-    handleLogin(): void {
-        const loginData = this.loginModel;
+  constructor(private router: Router, private auth: AuthService) {}
 
-        // ตรวจสอบความถูกต้องเบื้องต้น
-        if (!loginData.usernameOrEmail.trim() || !loginData.password) {
-            alert("กรุณากรอก Username/Email และ Password ให้ครบถ้วน");
-            return;
-        }
+  handleLogin(form?: NgForm): void {
+    this.loginFailed = false;
 
-        // 💡 Logic ในการส่งข้อมูลไปยัง API/เซิร์ฟเวอร์จริง
-        console.log("Attempting to log in with data:", loginData);
-
-        // ตัวอย่าง: ส่งไปยัง API
-        // this.authService.login(loginData).subscribe({
-        //     next: (res) => { alert("Login Successful!"); this.router.navigate(['/home']); },
-        //     error: (err) => { alert("Login failed: " + err.message); }
-        // });
-
-        alert("Login Successful! (จำลอง)");
-        // ไม่ต้อง reset ฟอร์มด้วยตัวเอง เพราะ Angular จะจัดการ State
+    if (form && form.invalid) {
+      return;
     }
+
+    const { usernameOrEmail, password } = this.loginModel;
+    if (!usernameOrEmail.trim() || !password) {
+      alert('กรุณากรอก Username/Email และ Password');
+      return;
+    }
+
+    this.loading = true;
+    this.auth.login(usernameOrEmail, password).subscribe({
+      next: () => {
+        this.loading = false;
+        this.router.navigateByUrl('/');   // เด้งไปหน้า Home (path '' ใน routes)
+      },
+      error: () => {
+        this.loading = false;
+        this.loginFailed = true;
+      }
+    });
+  }
 }

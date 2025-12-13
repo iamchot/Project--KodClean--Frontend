@@ -111,7 +111,7 @@
 
 .send-button {
     align-self: flex-start; /* จัดปุ่มไปทางซ้าย */
-    background-color: var(--primary-green);
+    background-color: #32a862;
     color: white;
     font-weight: 600;
     border: none;
@@ -221,3 +221,20 @@
 }
 
 /* ... (โค้ดส่วนอื่น ๆ เหมือนเดิม) ... */
+
+.success-banner {
+  margin-top: 10px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  background: rgba(56, 193, 114, 0.15);
+  border-left: 4px solid var(--primary-green);
+  color: #1d6e43;
+  font-weight: 600;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+

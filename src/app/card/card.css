@@ -1,0 +1,104 @@
+/* คอนเทนเนอร์หลักของการ์ด 1 ใบ */
+.card-container {
+  width: 1200px; /* ความกว้างคงที่ตาม CSS เดิมของคุณ */
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background-color: #fff;
+  transition: all 0.3s; /* ปรับ transition ให้สมูท */
+  margin-bottom: 24px; /* ย้าย gap มาเป็น margin-bottom แทน */
+}
+.card-container:hover {
+  transform: translateY(-5px);
+}
+
+/* --- 1. สไตล์มุมมองย่อ (จาก recipes.css เดิม) --- */
+.recipe-card-summary {
+  display: flex;
+  flex-direction: row;
+  height: 400px; 
+}
+.recipe-image-summary {
+  width: 50%;
+  object-fit: cover; /* เปลี่ยนจาก contain เป็น cover สวยกว่า */
+}
+.info-section-summary {
+  padding: 24px;
+  width: 50%; /* ปรับเป็น 50% */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.info-section-summary h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+.info-section-summary .rating {
+  font-weight: bold;
+  color: #38c172;
+  margin-bottom: 8px;
+}
+.info-section-summary ul {
+  padding-left: 20px;
+  margin: 0;
+}
+.read-more-btn {
+  align-self: flex-start;
+  background-color: #38c172;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+/* --- 2. สไตล์มุมมองเต็ม (Detailed) --- */
+.recipe-card-detailed {
+  padding: 25px;
+}
+.detail-header {
+  text-align: center;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 15px;
+}
+.detail-header h2 {
+  margin-bottom: 5px;
+}
+.detail-image {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+.detail-content {
+  margin-top: 20px;
+}
+.detail-content h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.detail-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px solid #f0f0f0;
+}
+.btn-dark, .btn-dark-outline {
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  border: 1px solid #343a40;
+}
+.btn-dark {
+  background-color: #343a40;
+  color: white;
+}
+.btn-dark-outline {
+  background-color: white;
+  color: #343a40;
+}

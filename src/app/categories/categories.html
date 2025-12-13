@@ -1,1 +1,20 @@
-<p>categories works!</p>
+<div class="categories-container">
+  
+  <h1 class="page-title">Categories</h1>
+  
+  <h2 class="category-title">{{ currentCategory }}</h2>
+
+  <!-- แสดงเมื่อไม่มีสูตรอาหารในหมวดนี้ -->
+  <div *ngIf="categoryRecipes.length === 0" class="no-recipes">
+    <p>No recipes yet.</p>
+  </div>
+
+  <!-- แสดงรายการสูตรอาหาร -->
+  <div class="category-list" *ngIf="categoryRecipes.length > 0">
+    <app-category-card 
+      *ngFor="let recipe of categoryRecipes"
+      [recipe]="recipe">
+    </app-category-card>
+  </div>
+
+</div>

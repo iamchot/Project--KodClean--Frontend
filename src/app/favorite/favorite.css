@@ -1,0 +1,36 @@
+/* --- สไตล์หัวข้อ "My Favorites" --- */
+.favorites-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1A1A2E;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  margin-left: 150px;
+}
+.highlight-green {
+  background: linear-gradient(to right, #28a745, #218838);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+}
+
+/* --- สไตล์ "รายการ" --- */
+.favorites-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* ⭐️ CSS นี้จะเว้นระยะห่างระหว่าง <app-favorite-card> แต่ละอัน */
+}
+
+/* --- ข้อความเมื่อไม่มีรายการโปรด --- */
+.no-favorites {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+  padding: 40px;
+}
+
+/* ครอบทั้งหน้า Favorites ให้มีระยะจากขอบ */
+.favorites-page {
+  padding: 0 20px;
+}

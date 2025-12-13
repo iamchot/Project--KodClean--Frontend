@@ -1,0 +1,64 @@
+/* (คุณอาจจะต้องปรับ font-family ให้ตรงกับโปรเจกต์ของคุณ) */
+:host {
+  font-family: Arial, sans-serif;
+}
+
+/* 1. คอนเทนเนอร์หลัก */
+.about-container {
+  max-width: 1000px; /* จำกัดความกว้างของเนื้อหา */
+  margin: 40px auto; /* จัดกลางหน้าจอ และเว้นระยะบนล่าง */
+  padding: 0 20px; /* เว้นระยะซ้ายขวา */
+  color: #333; /* สีตัวอักษรหลัก */
+}
+
+/* 2. หัวข้อหลัก "About" */
+.page-title {
+  font-size: 2.8rem; /* 2.8em */
+  font-weight: 800;
+  color: #1A1A2E; /* สีเข้ม (เหมือนหน้า Favorites) */
+  margin-bottom: 30px;
+}
+
+/* 3. หัวข้อรอง (Our Story, Mission, Vision) */
+.section-title {
+  font-size: 2.2rem; /* 2.2em */
+  font-weight: 700;
+  color: #1A1A2E;
+  margin-top: 40px; /* เว้นระยะห่างระหว่างส่วน */
+  margin-bottom: 20px;
+}
+
+/* 4. ตัวอักษรสีเขียว */
+.highlight-green {
+  color: #28a745; /* สีเขียวหลัก */
+}
+
+/* 5. กล่องเนื้อหา (กรอบสีเทา) */
+.content-box {
+  background-color: #fdfdfd;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px; /* ขอบมน */
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04); /* เงาจางๆ */
+}
+
+.content-box p {
+  font-size: 1.1rem; /* 1.1em */
+  line-height: 1.7; /* ระยะห่างระหว่างบรรทัด */
+  margin: 0; /* ลบ margin เริ่มต้นของ <p> */
+  color: #444; /* สีตัวอักษรในกล่อง */
+}
+
+/* --- Responsive (สำหรับจอเล็ก) --- */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2.2rem;
+  }
+  .section-title {
+    font-size: 1.8rem;
+    margin-top: 30px;
+  }
+  .content-box p {
+    font-size: 1rem;
+  }
+}

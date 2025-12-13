@@ -1,34 +1,35 @@
-import { RouterModule,Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 // 💡 ต้อง Import Component ที่คุณใช้ในแต่ละ Route
 import { Homepage } from './homepage/homepage';
 import { RecipesComponent } from './recipes/recipes';
-import { Favorites } from './favorites/favorites';
-import { Categories } from './categories/categories';
+import { CategoriesComponent } from './categories/categories';
 import { Contact } from './contact/contact';
-import { About } from './about/about';
+import { AboutComponent } from './about/about';
 import { Login } from './login/login';
 import { Signup } from './signup/signup';
+import { FavoriteComponent } from './favorite/favorite';
 
 export const routes: Routes = [
   // Home: Route หลัก
   { path: '', component: Homepage, title: 'KodClean | Home' },
 
   // Recipes
-  { path: 'recipes', component:RecipesComponent, title: 'KodClean | Recipes' },
+  { path: 'recipes', component: RecipesComponent, title: 'KodClean | Recipes' },
 
   // Favorites
-  { path: 'favorites', component: Favorites, title: 'KodClean | Favorites' },
+  { path: 'favorites', component: FavoriteComponent, title: 'KodClean | Favorites' },
 
-  // Categories
-  { path: 'categories', component: Categories, title: 'KodClean | Categories' },
+  // Categories - เพิ่ม dynamic route parameter
+  { path: 'categories', component: CategoriesComponent, title: 'KodClean | Categories' },
+  { path: 'categories/:category', component: CategoriesComponent, title: 'KodClean | Categories' },
 
   // Contact
   { path: 'contact', component: Contact, title: 'KodClean | Contact Us' },
 
   // About
-  { path: 'about', component: About, title: 'KodClean | About' },
+  { path: 'about', component: AboutComponent, title: 'KodClean | About' },
 
   { path: 'login', component: Login, title: 'KodClean | Login/Signup' },
 
@@ -39,7 +40,7 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-imports: [RouterModule.forRoot(routes)],
-exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

@@ -1,42 +1,57 @@
 <div class="page-container">
-    <div class="login-card">
-        <h1 class="login-title">Log in</h1>
-        
-        <form class="login-form" (ngSubmit)="handleLogin()"> 
-            
-            <div class="form-group">
-                <label for="username-email" class="form-label">Username or Email Address</label>
-                <input 
-                    type="text" 
-                    id="username-email" 
-                    class="form-input" 
-                    name="usernameOrEmail" 
-                    [(ngModel)]="loginModel.usernameOrEmail"
-                    required
-                >
-            </div>
-            
-            <div class="form-group">
-                <label for="password" class="form-label">Password</label>
-                <input 
-                    type="password" 
-                    id="password" 
-                    class="form-input" 
-                    name="password" 
-                    [(ngModel)]="loginModel.password"
-                    required
-                >
-            </div>
-            
-            <div class="forgot-password-container">
-                <a href="#" class="forgot-password-link">Forgot password?</a>
-            </div>
-            
-            <button type="submit" class="login-button">Log in</button>
-        </form>
-    </div>
-    
-    <div class="signup-prompt">
-        Don't have an account? <a href="/signup" class="signup-link">Sign up</a>
-    </div>
+  <div class="login-card">
+    <h1 class="login-title">Log in</h1>
+
+    <form class="login-form" #f="ngForm" (ngSubmit)="handleLogin(f)" novalidate>
+      <!-- Username/Email -->
+      <div class="form-group">
+        <label for="username-email" class="form-label">Username or Email Address</label>
+        <input
+          type="text"
+          id="username-email"
+          class="form-input"
+          name="usernameOrEmail"
+          [(ngModel)]="loginModel.usernameOrEmail"
+          required
+        />
+        <div class="err" *ngIf="f.submitted && !loginModel.usernameOrEmail">
+          Required
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="form-input"
+          name="password"
+          [(ngModel)]="loginModel.password"
+          required
+          minlength="6"
+        />
+        <div class="err" *ngIf="f.submitted && (!loginModel.password || loginModel.password.length < 6)">
+          Password must be at least 6 characters
+        </div>
+      </div>
+
+      <div class="forgot-password-container">
+        <a [routerLink]="'/signup'">Create account</a>
+      </div>
+
+      <button type="submit" class="login-button" [disabled]="f.invalid || loading">
+        {{ loading ? 'Logging in...' : 'Log in' }}
+      </button>
+
+      <div class="err" *ngIf="loginFailed" style="margin-top:10px;">
+        Invalid credentials
+      </div>
+    </form>
+  </div>
+
+  <div class="signup-prompt">
+    Don't have an account?
+    <a routerLink="/signup" class="signup-link">Sign up</a>
+  </div>
 </div>

@@ -1,17 +1,4 @@
 <app-hero></app-hero>
 <div class="recipe-list">
-  <div class="recipe-card" *ngFor="let recipe of recipes">
-    <img [src]="recipe.imageSrc" [alt]="recipe.title" class="recipe-image" />
-
-    <div class="info-section">
-      <h2>{{ recipe.title }}</h2>
-      <h4>Ingredients:</h4>
-      <ul>
-        <li *ngFor="let item of recipe.ingredients">{{ item }}</li>
-      </ul>
-      <p class="rating">⭐ {{ recipe.rating }}/5</p>
-
-      <button class="read-more-btn">Read more</button>
-    </div>
-  </div>
+  <app-card *ngFor="let r of recipes" [recipe]="r"></app-card>
 </div>
