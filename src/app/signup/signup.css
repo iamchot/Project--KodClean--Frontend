@@ -109,8 +109,8 @@ body {
     border: none;
     /* ขอบโค้งเต็มที่สำหรับปุ่มหลัก */
     border-radius: 25px; 
-    /* สีน้ำเงินม่วงตามภาพ */
-    background-color: #4800ff; 
+    /* สีเขียวตามธีมหลักของแอปพลิเคชัน */
+    background-color: rgb(1, 131, 42); 
     color: white;
     font-size: 18px;
     font-weight: bold;
@@ -119,7 +119,7 @@ body {
 }
 
 .signup-btn:hover {
-    background-color: #3a00cc;
+    background-color: rgb(1, 110, 35);
 }
 
 .signup-prompt-outside {
