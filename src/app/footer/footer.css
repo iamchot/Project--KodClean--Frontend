@@ -1,157 +1,209 @@
-/* Container หลักของ Footer */
+/* Container Global Styles handled by src/styles.css (e.g. .container) */
+
+/* Footer Container */
 footer {
-    background-color: #F0F0F0; /* สีเทาอ่อนสำหรับ Top Footer */
-    color: #1A1A2E;
-    font-size: 14px;
+    background-color: #f9fafb; /* Light gray background for a clean look */
+    color: #1f2937; /* Dark gray text */
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    margin-top: auto;
+    font-size: 15px;
 }
 
-/* TOP FOOTER (Grid Layout) */
+/* TOP FOOTER - Main Content */
 .top-footer {
-    border-bottom: 1px solid #ddd;
-    padding-top: 60px;
-    padding-bottom: 60px;
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 60px 0;
 }
 
+/* Grid Layout */
 .top-footer-grid {
     display: grid;
-    /* แบ่ง 3 คอลัมน์ โดยให้คอลัมน์กลางกว้างกว่า */
-    grid-template-columns: 1.5fr 2fr 1.5fr; 
+    /* 3 Columns: Logo (Left), Subscribe (Center, wider), Links (Right) */
+    grid-template-columns: 1fr 1.5fr 1fr;
     gap: 40px;
-    /* Padding is handled by .container */
+    align-items: start;
 }
 
-/* คอลัมน์หลัก */
-/* .footer-col { ... } */
+/* ==================== Column 1: Logo & Brand ==================== */
+.logo-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 
-
-/* Logo */
 .logo {
-    font-size: 28px;
-    font-weight: 700;
-    color: #1A1A2E;
+    font-size: 26px;
+    font-weight: 800;
+    color: #111827;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    text-decoration: none;
 }
 
 .logo-icon {
-    color: #4CAF50; /* สีเขียวสำหรับไอคอน */
-    margin-left: 5px;
+    font-size: 22px;
+    margin-left: 8px;
 }
 
-/* Subscription Form */
+/* ==================== Column 2: Subscription ==================== */
 .subscription-col {
-    /* จัดให้อยู่ตรงกลางคอลัมน์ */
-    justify-self: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
 }
 
 .col-title {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
     margin-bottom: 20px;
+    color: #111827;
 }
 
 .subscribe-form {
     display: flex;
-    margin-bottom: 10px;
+    width: 100%;
+    max-width: 420px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .subscribe-form input {
-    padding: 12px 15px;
-    border: none;
-    border-radius: 5px 0 0 5px;
-    font-size: 14px;
-    background-color: #E0E0E0; /* สีเทาเข้มกว่าพื้นหลัง */
-    width: 250px;
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid #d1d5db;
+    border-right: none;
+    font-size: 15px;
+    outline: none;
+    background-color: #ffffff;
+    border-radius: 8px 0 0 8px;
+    transition: border-color 0.2s;
+}
+
+.subscribe-form input:focus {
+    border-color: #38c172;
+    z-index: 10;
 }
 
 .subscribe-form button {
-    background-color: #38c172; /* สีเขียว */
+    background-color: #38c172;
     color: white;
     border: none;
-    padding: 12px 20px;
-    border-radius: 0 5px 5px 0;
+    padding: 12px 24px;
     cursor: pointer;
     font-weight: 600;
-    transition: background-color 0.3s;
+    font-size: 15px;
+    border-radius: 0 8px 8px 0;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.subscribe-form button:hover {
+    background-color: #2ea05f;
 }
 
 .spam-text {
-    font-size: 12px;
-    color: #888;
+    font-size: 13px;
+    color: #6b7280;
 }
 
 .spam-text a {
-    color: #1A1A2E;
+    color: #38c172;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.spam-text a:hover {
     text-decoration: underline;
 }
 
-/* Important Links และ Social Media */
+/* ==================== Column 3: Links & Social ==================== */
 .links-col {
-    text-align: right; /* จัดให้อยู่ชิดขวาตามภาพ */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Right align for desktop */
+    text-align: right;
 }
 
 .important-links {
     list-style: none;
     padding: 0;
-    margin-bottom: 25px;
+    margin: 0 0 24px;
 }
 
 .important-links li {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 
 .important-links a {
-    color: #1A1A2E;
+    color: #4b5563;
     text-decoration: none;
+    font-size: 15px;
     transition: color 0.2s;
+    font-weight: 500;
 }
 
 .important-links a:hover {
     color: #38c172;
 }
 
-/* Social Media Icons */
 .social-media {
     display: flex;
-    justify-content: flex-end; /* ชิดขวา */
-    gap: 15px;
+    gap: 12px;
 }
 
 .social-media a {
-    color: white;
-    background-color: #1A1A2E; /* สีดำ/น้ำเงินเข้ม */
-    width: 30px;
-    height: 30px;
+    width: 38px;
+    height: 38px;
+    background-color: #f3f4f6;
+    color: #4b5563;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
+    font-size: 18px;
     text-decoration: none;
-    transition: background-color 0.3s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-media a:hover {
-    background-color: #38c172; /* เปลี่ยนเป็นสีเขียวเมื่อโฮเวอร์ */
+    background-color: #38c172;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px -1px rgba(56, 193, 114, 0.4);
 }
 
-/* BOTTOM FOOTER (Dark Bar) */
+/* ==================== BOTTOM FOOTER ==================== */
 .bottom-footer {
-    background-color: #0d1222; /* สีดำเข้มตามภาพ */
-    color: #ddd;
+    background-color: #111827; /* Dark background */
+    color: #9ca3af;
+    padding: 24px 0;
+    font-size: 14px;
 }
 
 .bottom-footer-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
+}
+
+.copyright {
+    font-weight: 400;
+}
+
+.policy-links {
+    display: flex;
+    gap: 24px;
 }
 
 .policy-links a {
-    color: #ddd;
+    color: #9ca3af;
     text-decoration: none;
-    margin-left: 20px;
     transition: color 0.2s;
 }
 
@@ -159,644 +211,86 @@ footer {
     color: white;
 }
 
-/* ==================== RESPONSIVE STYLES ==================== */
+/* ==================== RESPONSIVE DESIGN ==================== */
 
-/* Large devices (desktops, 1200px and up) */
-@media (min-width: 1200px) {
-  .top-footer {
-    padding-top: 60px;
-    padding-bottom: 60px;
-  }
-  
-  .top-footer-grid {
-    grid-template-columns: 1.5fr 2fr 1.5fr;
-    gap: 40px;
-  }
+/* Tablet Portrait & Small Desktops (max-width: 991px) */
+@media (max-width: 991px) {
+    .top-footer {
+        padding: 50px 0;
+    }
 
-  .subscribe-form input {
-    width: 250px;
-  }
+    .top-footer-grid {
+        grid-template-columns: 1fr; /* Stack everything */
+        gap: 40px;
+        text-align: center;
+        width: 100%;
+        max-width: 600px; /* Limit width when stacked */
+        margin: 0 auto;
+    }
+
+    /* Center align everything on tablet/mobile */
+    .logo-col, 
+    .subscription-col, 
+    .links-col {
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo {
+        margin-bottom: 20px;
+    }
+
+    .subscribe-form {
+        margin: 0 auto 15px;
+    }
+
+    .links-col {
+        align-items: center; /* Reset from flex-end */
+    }
+
+    .bottom-footer-content {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
 }
 
-/* Medium devices (tablets, 768px to 1199px) */
-@media (min-width: 768px) and (max-width: 1199px) {
-  .top-footer {
-      padding-top: 40px;
-      padding-bottom: 40px;
-  }
-
-  .top-footer-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 25px;
-  }
-
-  .subscription-col {
-    justify-self: center;
-  }
-
-  .col-title {
-    font-size: 14px;
-    margin-bottom: 15px;
-  }
-
-  .subscribe-form {
-    flex-direction: column;
-  }
-
-  .subscribe-form input {
-    width: 100%;
-    border-radius: 5px 5px 0 0;
-  }
-
-  .subscribe-form button {
-    border-radius: 0 0 5px 5px;
-    width: 100%;
-  }
-
-  .links-col {
-    text-align: left;
-  }
-
-  .social-media {
-    justify-content: flex-start;
-    gap: 10px;
-  }
-
-  .social-media a {
-    width: 28px;
-    height: 28px;
-    font-size: 14px;
-  }
-
-  .bottom-footer-content {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-  }
-
-  .policy-links a {
-    margin-left: 10px;
-  }
-}
-
-/* Small devices (landscape phones, 576px to 767px) */
-@media (min-width: 576px) and (max-width: 767px) {
-  .top-footer {
-      padding-top: 30px;
-      padding-bottom: 30px;
-  }
-
-  .top-footer-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .logo {
-    font-size: 22px;
-  }
-
-  .col-title {
-    font-size: 13px;
-    margin-bottom: 12px;
-  }
-
-  .subscribe-form {
-    flex-direction: column;
-    margin-bottom: 8px;
-  }
-
-  .subscribe-form input {
-    width: 100%;
-    padding: 10px 12px;
-    font-size: 12px;
-    border-radius: 4px 4px 0 0;
-  }
-
-  .subscribe-form button {
-    width: 100%;
-    padding: 10px 15px;
-    border-radius: 0 0 4px 4px;
-    font-size: 12px;
-  }
-
-  .spam-text {
-    font-size: 11px;
-    margin-bottom: 15px;
-  }
-
-  .important-links {
-    margin-bottom: 15px;
-    text-align: left;
-  }
-
-  .important-links a {
-    font-size: 13px;
-  }
-
-  .social-media {
-    justify-content: flex-start;
-    gap: 8px;
-  }
-
-  .social-media a {
-    width: 26px;
-    height: 26px;
-    font-size: 12px;
-  }
-
-  .bottom-footer-content {
-    flex-direction: column;
-    gap: 8px;
-    font-size: 12px;
-  }
-
-  .policy-links a {
-    margin-left: 8px;
-    font-size: 11px;
-  }
-}
-
-/* Extra small devices (phones, less than 576px) */
-@media (max-width: 575.98px) {
-  footer {
-    font-size: 12px;
-  }
-
-  .top-footer {
-      padding-top: 20px;
-      padding-bottom: 20px;
-  }
-
-  .top-footer-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  .logo {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-
-  .col-title {
-    font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
-
-  .subscribe-form {
-    flex-direction: column;
-    margin-bottom: 5px;
-  }
-
-  .subscribe-form input {
-    width: 100%;
-    padding: 8px 10px;
-    font-size: 11px;
-    border-radius: 4px 4px 0 0;
-  }
-
-  .subscribe-form button {
-    width: 100%;
-    padding: 8px 12px;
-    font-size: 11px;
-    border-radius: 0 0 4px 4px;
-  }
-
-  .spam-text {
-    font-size: 10px;
-    margin-bottom: 10px;
-  }
-
-  .important-links {
-    margin-bottom: 10px;
-    text-align: left;
-    padding: 0;
-  }
-
-  .important-links li {
-    margin-bottom: 4px;
-  }
-
-  .important-links a {
-    font-size: 11px;
-  }
-
-  .social-media {
-    justify-content: flex-start;
-    gap: 6px;
-    margin-bottom: 10px;
-  }
-
-  .social-media a {
-    width: 24px;
-    height: 24px;
-    font-size: 11px;
-  }
-
-  .bottom-footer-content {
-    flex-direction: column;
-    gap: 6px;
-    padding: 10px; /* actually padded by container, but kept for safe measure if needed */
-    font-size: 10px;
-  }
-
-  .policy-links {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .policy-links a {
-    margin-left: 0;
-    font-size: 10px;
-  }
-}
-
-/* TOP FOOTER (Grid Layout) */
-.top-footer {
-    display: grid;
-    /* แบ่ง 3 คอลัมน์ โดยให้คอลัมน์กลางกว้างกว่า */
-    grid-template-columns: 1.5fr 2fr 1.5fr; 
-    gap: 40px;
-    padding: 60px 80px;
-    border-bottom: 1px solid #ddd;
-}
-
-/* คอลัมน์หลัก
-.footer-col {
-    /* จัดเรียงข้อความให้ชิดซ้าย/กลาง/ขวา ตาม Layout */
-
-
-/* Logo */
-.logo {
-    font-size: 28px;
-    font-weight: 700;
-    color: #1A1A2E;
-}
-
-.logo-icon {
-    color: #4CAF50; /* สีเขียวสำหรับไอคอน */
-    margin-left: 5px;
-}
-
-/* Subscription Form */
-.subscription-col {
-    /* จัดให้อยู่ตรงกลางคอลัมน์ */
-    justify-self: center; 
-    text-align: center;
-}
-
-.col-title {
-    font-size: 16px;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-.subscribe-form {
-    display: flex;
-    margin-bottom: 10px;
-}
-
-.subscribe-form input {
-    padding: 12px 15px;
-    border: none;
-    border-radius: 5px 0 0 5px;
-    font-size: 14px;
-    background-color: #E0E0E0; /* สีเทาเข้มกว่าพื้นหลัง */
-    width: 250px;
-}
-
-.subscribe-form button {
-    background-color: #38c172; /* สีเขียว */
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.3s;
-}
-
-.spam-text {
-    font-size: 12px;
-    color: #888;
-}
-
-.spam-text a {
-    color: #1A1A2E;
-    text-decoration: underline;
-}
-
-/* Important Links และ Social Media */
-.links-col {
-    text-align: right; /* จัดให้อยู่ชิดขวาตามภาพ */
-}
-
-.important-links {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 25px;
-}
-
-.important-links li {
-    margin-bottom: 5px;
-}
-
-.important-links a {
-    color: #1A1A2E;
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.important-links a:hover {
-    color: #38c172;
-}
-
-/* Social Media Icons */
-.social-media {
-    display: flex;
-    justify-content: flex-end; /* ชิดขวา */
-    gap: 15px;
-}
-
-.social-media a {
-    color: white;
-    background-color: #1A1A2E; /* สีดำ/น้ำเงินเข้ม */
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    text-decoration: none;
-    transition: background-color 0.3s;
-}
-
-.social-media a:hover {
-    background-color: #38c172; /* เปลี่ยนเป็นสีเขียวเมื่อโฮเวอร์ */
-}
-
-/* BOTTOM FOOTER (Dark Bar) */
-.bottom-footer {
-    background-color: #0d1222; /* สีดำเข้มตามภาพ */
-    color: #ddd;
-    padding: 15px 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.policy-links a {
-    color: #ddd;
-    text-decoration: none;
-    margin-left: 20px;
-    transition: color 0.2s;
-}
-
-.policy-links a:hover {
-    color: white;
-}
-
-/* ==================== RESPONSIVE STYLES ==================== */
-
-/* Large devices (desktops, 1200px and up) */
-@media (min-width: 1200px) {
-  .top-footer {
-    grid-template-columns: 1.5fr 2fr 1.5fr;
-    gap: 40px;
-    padding: 60px 80px;
-  }
-
-  .subscribe-form input {
-    width: 250px;
-  }
-
-  .bottom-footer {
-    padding: 15px 80px;
-  }
-}
-
-/* Medium devices (tablets, 768px to 1199px) */
-@media (min-width: 768px) and (max-width: 1199px) {
-  .top-footer {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 25px;
-    padding: 40px 30px;
-  }
-
-  .subscription-col {
-    justify-self: center;
-  }
-
-  .col-title {
-    font-size: 14px;
-    margin-bottom: 15px;
-  }
-
-  .subscribe-form {
-    flex-direction: column;
-  }
-
-  .subscribe-form input {
-    width: 100%;
-    border-radius: 5px 5px 0 0;
-  }
-
-  .subscribe-form button {
-    border-radius: 0 0 5px 5px;
-    width: 100%;
-  }
-
-  .links-col {
-    text-align: left;
-  }
-
-  .social-media {
-    justify-content: flex-start;
-    gap: 10px;
-  }
-
-  .social-media a {
-    width: 28px;
-    height: 28px;
-    font-size: 14px;
-  }
-
-  .bottom-footer {
-    flex-direction: column;
-    gap: 10px;
-    padding: 15px 20px;
-    text-align: center;
-  }
-
-  .policy-links a {
-    margin-left: 10px;
-  }
-}
-
-/* Small devices (landscape phones, 576px to 767px) */
-@media (min-width: 576px) and (max-width: 767px) {
-  .top-footer {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 30px 15px;
-  }
-
-  .logo {
-    font-size: 22px;
-  }
-
-  .col-title {
-    font-size: 13px;
-    margin-bottom: 12px;
-  }
-
-  .subscribe-form {
-    flex-direction: column;
-    margin-bottom: 8px;
-  }
-
-  .subscribe-form input {
-    width: 100%;
-    padding: 10px 12px;
-    font-size: 12px;
-    border-radius: 4px 4px 0 0;
-  }
-
-  .subscribe-form button {
-    width: 100%;
-    padding: 10px 15px;
-    border-radius: 0 0 4px 4px;
-    font-size: 12px;
-  }
-
-  .spam-text {
-    font-size: 11px;
-    margin-bottom: 15px;
-  }
-
-  .important-links {
-    margin-bottom: 15px;
-    text-align: left;
-  }
-
-  .important-links a {
-    font-size: 13px;
-  }
-
-  .social-media {
-    justify-content: flex-start;
-    gap: 8px;
-  }
-
-  .social-media a {
-    width: 26px;
-    height: 26px;
-    font-size: 12px;
-  }
-
-  .bottom-footer {
-    flex-direction: column;
-    gap: 8px;
-    padding: 12px 15px;
-    font-size: 12px;
-  }
-
-  .policy-links a {
-    margin-left: 8px;
-    font-size: 11px;
-  }
-}
-
-/* Extra small devices (phones, less than 576px) */
-@media (max-width: 575.98px) {
-  footer {
-    font-size: 12px;
-  }
-
-  .top-footer {
-    grid-template-columns: 1fr;
-    gap: 15px;
-    padding: 20px 10px;
-  }
-
-  .logo {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-
-  .col-title {
-    font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
-
-  .subscribe-form {
-    flex-direction: column;
-    margin-bottom: 5px;
-  }
-
-  .subscribe-form input {
-    width: 100%;
-    padding: 8px 10px;
-    font-size: 11px;
-    border-radius: 4px 4px 0 0;
-  }
-
-  .subscribe-form button {
-    width: 100%;
-    padding: 8px 12px;
-    font-size: 11px;
-    border-radius: 0 0 4px 4px;
-  }
-
-  .spam-text {
-    font-size: 10px;
-    margin-bottom: 10px;
-  }
-
-  .important-links {
-    margin-bottom: 10px;
-    text-align: left;
-    padding: 0;
-  }
-
-  .important-links li {
-    margin-bottom: 4px;
-  }
-
-  .important-links a {
-    font-size: 11px;
-  }
-
-  .social-media {
-    justify-content: flex-start;
-    gap: 6px;
-    margin-bottom: 10px;
-  }
-
-  .social-media a {
-    width: 24px;
-    height: 24px;
-    font-size: 11px;
-  }
-
-  .bottom-footer {
-    flex-direction: column;
-    gap: 6px;
-    padding: 10px;
-    font-size: 10px;
-  }
-
-  .policy-links {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .policy-links a {
-    margin-left: 0;
-    font-size: 10px;
-  }
+/* Mobile Devices (max-width: 576px) */
+@media (max-width: 576px) {
+    .top-footer {
+        padding: 40px 0;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .col-title {
+        font-size: 16px;
+    }
+
+    .subscribe-form {
+        flex-direction: column; /* Stack input and button */
+        box-shadow: none; /* Remove shadow on mobile for cleaner look */
+        background: transparent;
+    }
+
+    .subscribe-form input {
+        width: 100%;
+        border-radius: 6px;
+        margin-bottom: 12px;
+        border: 1px solid #d1d5db;
+        border-right: 1px solid #d1d5db; /* Restore right border */
+    }
+
+    .subscribe-form button {
+        width: 100%;
+        border-radius: 6px;
+        padding: 12px;
+    }
+
+    .policy-links {
+        flex-direction: column;
+        gap: 12px;
+    }
 }
