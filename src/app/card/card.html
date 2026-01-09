@@ -1,17 +1,22 @@
 <div class="card-container">
 
   <div *ngIf="!isExpanded" class="recipe-card-summary">
-    <img [src]="recipe.imageSrc" [alt]="recipe.title" class="recipe-image-summary" />
+    <div class="image-wrapper">
+        <img [src]="recipe.imageSrc" [alt]="recipe.title" class="recipe-image-summary" />
+    </div>
     <div class="info-section-summary">
-      <h2>{{ recipe.title }}</h2>
-      <h4>Ingredients:</h4>
-      <ul>
-        <li *ngFor="let item of recipe.ingredients.slice(0, 3)">{{ item }}</li>
-        <li>...</li>
-      </ul>
-      <p class="rating">⭐ {{ recipe.rating }}/5</p>
+      <div>
+        <h2>{{ recipe.title }}</h2>
+        <p class="rating">⭐ {{ recipe.rating }}/5</p>
+        <ul>
+            <li *ngFor="let item of recipe.ingredients.slice(0, 3)">{{ item }}</li>
+            <li>...</li>
+        </ul>
+      </div>
       
-      <button class="read-more-btn" (click)="toggleDetails()">Read more</button>
+      <div class="card-footer">
+          <button class="read-more-btn" (click)="toggleDetails()">Read more</button>
+      </div>
     </div>
   </div>
 

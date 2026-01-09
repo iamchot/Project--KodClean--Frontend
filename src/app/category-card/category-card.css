@@ -87,3 +87,219 @@
   cursor: pointer;
   font-weight: bold;
 }
+
+/* ==================== RESPONSIVE STYLES ==================== */
+
+/* Large devices (desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .category-card-container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .summary-view {
+    gap: 20px;
+  }
+
+  .card-left {
+    flex: 1;
+    min-width: 250px;
+  }
+
+  .card-right {
+    flex: 2;
+    min-width: 300px;
+  }
+}
+
+/* Medium devices (tablets, 768px to 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .category-card-container {
+    max-width: 100%;
+  }
+
+  .summary-view {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .card-left {
+    flex: 1;
+    min-width: auto;
+  }
+
+  .card-image {
+    max-width: 200px;
+  }
+
+  .card-right {
+    flex: 1;
+    min-width: auto;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+  }
+
+  .btn-read-more {
+    align-self: flex-start;
+  }
+
+  .detailed-view {
+    padding: 15px;
+  }
+
+  .detail-content h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Small devices (landscape phones, 576px to 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+  .category-card-container {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+
+  .summary-view {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .card-left {
+    min-width: auto;
+  }
+
+  .card-image {
+    max-width: 150px;
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+  }
+
+  .card-rating {
+    font-size: 0.85rem;
+  }
+
+  .ingredients-box {
+    padding: 12px 15px;
+    margin-bottom: 12px;
+  }
+
+  .ingredients-box ul {
+    font-size: 13px;
+    padding-left: 18px;
+  }
+
+  .btn-read-more {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .detailed-view {
+    padding: 12px;
+  }
+
+  .detail-content h3 {
+    font-size: 1rem;
+  }
+
+  .detail-actions {
+    flex-direction: column;
+  }
+
+  .btn-read-less {
+    width: 100%;
+    padding: 8px 12px;
+  }
+}
+
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .category-card-container {
+    max-width: 100%;
+    border-radius: 6px;
+  }
+
+  .summary-view {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .card-left {
+    min-width: auto;
+    text-align: center;
+  }
+
+  .card-image {
+    max-width: 120px;
+    margin: 0 auto 8px;
+  }
+
+  .card-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  .card-rating {
+    font-size: 0.8rem;
+  }
+
+  .card-right {
+    min-width: auto;
+  }
+
+  .ingredients-box {
+    background-color: #fafafa;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+  }
+
+  .ingredients-box ul {
+    font-size: 12px;
+    padding-left: 15px;
+    margin: 0;
+  }
+
+  .ingredients-box li {
+    margin-bottom: 4px;
+  }
+
+  .btn-read-more {
+    padding: 6px 10px;
+    font-size: 11px;
+    align-self: center;
+  }
+
+  .detailed-view {
+    padding: 10px;
+  }
+
+  .detail-content h3 {
+    font-size: 0.9rem;
+    margin: 8px 0 5px 0;
+  }
+
+  .detail-content ul,
+  .detail-content ol {
+    font-size: 12px;
+    padding-left: 15px;
+  }
+
+  .detail-actions {
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 10px;
+    padding-top: 8px;
+  }
+
+  .btn-read-less {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+}

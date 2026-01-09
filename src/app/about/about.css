@@ -62,3 +62,128 @@
     font-size: 1rem;
   }
 }
+
+/* ==================== COMPREHENSIVE RESPONSIVE STYLES ==================== */
+
+/* Large devices (desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .about-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 25px;
+  }
+
+  .page-title {
+    font-size: 2.8rem;
+    margin-bottom: 35px;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+    margin-top: 45px;
+    margin-bottom: 25px;
+  }
+
+  .content-box {
+    padding: 30px;
+  }
+
+  .content-box p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+}
+
+/* Medium devices (tablets, 768px to 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .about-container {
+    max-width: 100%;
+    margin: 35px auto;
+    padding: 0 20px;
+  }
+
+  .page-title {
+    font-size: 2.3rem;
+    margin-bottom: 25px;
+  }
+
+  .section-title {
+    font-size: 1.9rem;
+    margin-top: 30px;
+    margin-bottom: 18px;
+  }
+
+  .content-box {
+    padding: 22px;
+    border-radius: 10px;
+  }
+
+  .content-box p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+}
+
+/* Small devices (landscape phones, 576px to 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+  .about-container {
+    max-width: 100%;
+    margin: 25px auto;
+    padding: 0 15px;
+  }
+
+  .page-title {
+    font-size: 1.8rem;
+    margin-bottom: 18px;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+    margin-top: 22px;
+    margin-bottom: 14px;
+  }
+
+  .content-box {
+    padding: 18px;
+    border-radius: 8px;
+  }
+
+  .content-box p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+}
+
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .about-container {
+    max-width: 100%;
+    margin: 15px auto;
+    padding: 0 12px;
+  }
+
+  .page-title {
+    font-size: 1.4rem;
+    margin-bottom: 14px;
+    font-weight: 700;
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+    margin-top: 16px;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .content-box {
+    padding: 14px;
+    border-radius: 6px;
+    background-color: #fafafa;
+  }
+
+  .content-box p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #555;
+  }
+}

@@ -1,6 +1,6 @@
 /* -------------------- General Layout -------------------- */
 .recipe-section-container {
-    max-width: 1200px;
+    max-width: var(--container-max-width);
     margin: 60px auto; /* เพิ่มระยะห่างด้านบน/ล่าง */
     padding: 0 20px;
 }
@@ -209,7 +209,7 @@
     
     /* รูปภาพพื้นหลังของ Chef */
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                      url('https://www.jobschiangrai.com/storage/uploads/image/group-of-chefs-holding-plate-of-prepared-food.jpg'); /* 💡 URL รูปภาพตัวอย่าง */
+                      url('https://img2.pic.in.th/ian-taylor-drsobOIUGw4-unsplash.jpg'); /* Updated with user image */
     background-size: cover;
     background-position: center center;
     background-blend-mode: multiply; /* ทำให้สีพื้นหลัง (ดำ) ผสมกับรูปภาพ */
@@ -280,3 +280,243 @@
     }
 }
 
+/* ==================== COMPREHENSIVE RESPONSIVE STYLES ==================== */
+
+/* Large devices (desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .recipe-section-container {
+    max-width: var(--container-max-width);
+    margin: 60px auto;
+    padding: 0 20px;
+  }
+
+  .section-title {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+  }
+
+  .recipe-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .recipe-image-wrapper {
+    height: 350px;
+  }
+}
+
+/* Medium devices (tablets, 768px to 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .recipe-section-container {
+    max-width: 100%;
+    margin: 45px auto;
+    padding: 0 15px;
+  }
+
+  .section-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+
+  .recipe-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .recipe-image-wrapper {
+    height: 300px;
+  }
+
+  .recipe-title {
+    font-size: 1.1em;
+  }
+
+  .popular-menu-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 15px;
+  }
+
+  .recipe-card.light-theme .recipe-image-wrapper {
+    height: 160px;
+  }
+
+  .recipe-details-light {
+    padding: 10px 8px;
+  }
+
+  .cta-banner {
+    height: 350px;
+    margin: 40px auto;
+  }
+
+  .cta-heading {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+  }
+
+  .cta-button {
+    padding: 12px 28px;
+    font-size: 1rem;
+  }
+}
+
+/* Small devices (landscape phones, 576px to 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+  .recipe-section-container {
+    max-width: 100%;
+    margin: 30px auto;
+    padding: 0 12px;
+  }
+
+  .section-title {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+  }
+
+  .recipe-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .recipe-image-wrapper {
+    height: 250px;
+  }
+
+  .recipe-title {
+    font-size: 1em;
+  }
+
+  .rank-ribbon {
+    width: 40px;
+    height: 60px;
+    right: 15px;
+  }
+
+  .rank-number {
+    font-size: 1em;
+  }
+
+  .popular-menu-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 12px;
+  }
+
+  .recipe-card.light-theme .recipe-image-wrapper {
+    height: 140px;
+  }
+
+  .recipe-title-light {
+    font-size: 0.9em;
+  }
+
+  .cta-banner {
+    height: 300px;
+    margin: 25px auto;
+  }
+
+  .cta-heading {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+  }
+
+  .cta-button {
+    padding: 10px 22px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .recipe-section-container {
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 0 10px;
+  }
+
+  .section-title {
+    font-size: 1.4em;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  .recipe-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .recipe-image-wrapper {
+    height: 200px;
+  }
+
+  .recipe-card {
+    border-radius: 8px;
+  }
+
+  .recipe-title {
+    font-size: 0.95em;
+  }
+
+  .recipe-details {
+    padding: 12px 15px;
+  }
+
+  .rank-ribbon {
+    width: 35px;
+    height: 55px;
+    right: 10px;
+  }
+
+  .rank-number {
+    font-size: 0.9em;
+  }
+
+  .popular-menu-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px;
+  }
+
+  .recipe-card.light-theme .recipe-image-wrapper {
+    height: 120px;
+  }
+
+  .recipe-title-light {
+    font-size: 0.85em;
+    margin-bottom: 2px;
+  }
+
+  .views-info {
+    font-size: 0.75em;
+  }
+
+  .popular-title {
+    margin-top: 30px;
+    font-size: 1.3em;
+  }
+
+  .cta-banner {
+    height: 250px;
+    margin: 20px auto;
+    border-radius: 12px;
+  }
+
+  .cta-content {
+    padding: 15px;
+  }
+
+  .cta-badge {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+  }
+
+  .cta-heading {
+    font-size: 1.3em;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .cta-button {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
+}

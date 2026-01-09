@@ -1,57 +1,100 @@
 /* คอนเทนเนอร์หลักของการ์ด 1 ใบ */
 .card-container {
-  width: 1200px; /* ความกว้างคงที่ตาม CSS เดิมของคุณ */
+  width: 100%;
+  /* max-width removed to allow grid control */
   border: 1px solid #ddd;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Lighter shadow */
   background-color: #fff;
-  transition: all 0.3s; /* ปรับ transition ให้สมูท */
-  margin-bottom: 24px; /* ย้าย gap มาเป็น margin-bottom แทน */
-}
-.card-container:hover {
-  transform: translateY(-5px);
-}
-
-/* --- 1. สไตล์มุมมองย่อ (จาก recipes.css เดิม) --- */
-.recipe-card-summary {
-  display: flex;
-  flex-direction: row;
-  height: 400px; 
-}
-.recipe-image-summary {
-  width: 50%;
-  object-fit: cover; /* เปลี่ยนจาก contain เป็น cover สวยกว่า */
-}
-.info-section-summary {
-  padding: 24px;
-  width: 50%; /* ปรับเป็น 50% */
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  height: 100%; /* Fill grid height */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
+
+.card-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+/* --- 1. สไตล์มุมมองย่อ (Summary View) --- */
+.recipe-card-summary {
+  display: flex;
+  flex-direction: column; /* Default stack for flexibility */
+  height: 100%; /* Fill container */
+}
+
+/* Image section */
+.recipe-image-summary {
+  width: 100%;
+  height: 240px; /* Fixed height for consistency */
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card-container:hover .recipe-image-summary {
+  transform: scale(1.02);
+}
+
+.image-wrapper {
+    overflow: hidden; /* For zoom effect */
+    height: 240px;
+    width: 100%;
+}
+
+/* Content section */
+.info-section-summary {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Push footer down */
+}
+
 .info-section-summary h2 {
   margin-top: 0;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+  color: #1a1a2e;
+  margin-bottom: 10px;
 }
+
 .info-section-summary .rating {
-  font-weight: bold;
+  font-weight: 600;
   color: #38c172;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
 }
+
 .info-section-summary ul {
   padding-left: 20px;
-  margin: 0;
+  margin: 0 0 15px 0;
+  color: #555;
+  font-size: 0.95rem;
 }
+
+/* Footer / Button area */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto; /* Push to bottom */
+    padding-top: 15px;
+}
+
 .read-more-btn {
-  align-self: flex-start;
+  background-color: transparent;
+  color: #38c172;
+  border: 2px solid #38c172;
+  padding: 8px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.read-more-btn:hover {
   background-color: #38c172;
   color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-top: 12px;
 }
 
 /* --- 2. สไตล์มุมมองเต็ม (Detailed) --- */
@@ -68,37 +111,148 @@
 }
 .detail-image {
   width: 100%;
-  max-width: 300px;
+  max-width: 400px; /* Larger max width */
   border-radius: 8px;
   margin-bottom: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 .detail-content {
   margin-top: 20px;
 }
 .detail-content h3 {
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin-top: 25px;
+  margin-bottom: 12px;
+  color: #38c172;
+  border-left: 4px solid #38c172;
+  padding-left: 10px;
 }
 .detail-actions {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
-  margin-top: 25px;
-  padding-top: 15px;
+  margin-top: 30px;
+  padding-top: 20px;
   border-top: 1px solid #f0f0f0;
 }
 .btn-dark, .btn-dark-outline {
-  padding: 10px 20px;
-  border-radius: 20px;
+  padding: 10px 24px;
+  border-radius: 30px;
   cursor: pointer;
-  font-weight: bold;
-  border: 1px solid #343a40;
+  font-weight: 600;
+  border: 2px solid #343a40;
+  transition: all 0.2s;
 }
 .btn-dark {
   background-color: #343a40;
   color: white;
 }
+.btn-dark:hover {
+  background-color: #1d2124;
+  border-color: #1d2124;
+}
+
 .btn-dark-outline {
   background-color: white;
   color: #343a40;
+}
+.btn-dark-outline:hover {
+  background-color: #f8f9fa;
+}
+
+/* ==================== RESPONSIVE STYLES ==================== */
+
+/* Large devices (desktops) -> handled by Grid in parent, but let's check internals */
+@media (min-width: 992px) {
+    /* Side-by-side layout WITHIN the card if prefered? 
+       Actually, vertical stack is better for grid tiles. 
+       Let's keep vertical stack (image top, content bottom) as defined above. */
+}
+
+/* Medium devices (tablets, 768px to 991px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    /* Here we are usually single column again (recipes.css breakpoint is 992px for grid) 
+       So we might want horizontal card layout here like original?
+    */
+    .recipe-card-summary {
+        flex-direction: row; 
+    }
+    
+    .image-wrapper {
+        width: 45%;
+        height: auto;
+        min-height: 250px;
+    }
+    
+    .recipe-image-summary {
+        height: 100%;
+    }
+    
+    .info-section-summary {
+        width: 55%;
+    }
+}
+
+/* Small devices (landscape phones, 576px to 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+  .recipe-card-summary {
+    flex-direction: row;
+  }
+  
+  .image-wrapper {
+      width: 40%;
+      height: auto;
+  }
+  
+  .recipe-image-summary {
+      height: 100%;
+  }
+
+  .info-section-summary {
+    padding: 15px;
+    width: 60%;
+  }
+
+  .info-section-summary h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .card-container {
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Even lighter on mobile */
+  }
+
+  /* Force stack on mobile */
+  .recipe-card-summary {
+    flex-direction: column;
+  }
+
+  .image-wrapper {
+      width: 100%;
+      height: 200px;
+  }
+
+  .info-section-summary {
+    padding: 15px;
+  }
+
+  .info-section-summary h2 {
+    font-size: 1.15rem;
+  }
+
+  .detail-image {
+    max-width: 100%;
+  }
+  
+  .detail-actions {
+      flex-direction: column;
+      gap: 10px;
+  }
+  
+  .btn-dark, .btn-dark-outline {
+      width: 100%;
+      text-align: center;
+  }
 }

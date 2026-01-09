@@ -11,17 +11,19 @@ import { AuthService } from '../auth/auth.service';
   standalone: true,
   imports: [CommonModule, RouterModule, FontAwesomeModule],
   templateUrl: './header.html',
-  styleUrls: ['./header.css']
+  styleUrls: ['./header.css'],
 })
 export class HeaderComponent {
   // สถานะสำหรับ Dropdown
   isCategoriesDropdownOpen = false;
+  // สถานะสำหรับ Mobile Menu
+  isMobileMenuOpen = false;
 
-  constructor(
-    library: FaIconLibrary,
-    public auth: AuthService,
-    private router: Router
-  ) {
+  toggleMobileMenu(): void {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  constructor(library: FaIconLibrary, public auth: AuthService, private router: Router) {
     library.addIcons(faUserCircle, faChevronDown);
   }
 
@@ -29,19 +31,19 @@ export class HeaderComponent {
   navLinksBeforeCategories = [
     { label: 'Home', route: '/' },
     { label: 'Recipes', route: '/recipes' },
-    { label: 'Favorites', route: '/favorites' }
+    { label: 'Favorites', route: '/favorites' },
   ];
 
   navLinksAfterCategories = [
     { label: 'Contact', route: '/contact' },
-    { label: 'About', route: '/about' }
+    { label: 'About', route: '/about' },
   ];
 
   // Categories Dropdown
   categoriesMenu = [
     { label: 'Meat Salads', route: '/categories/meat-salads' },
     { label: 'Seafood', route: '/categories/seafood' },
-    { label: 'Vegetarian', route: '/categories/vegetarian' }
+    { label: 'Vegetarian', route: '/categories/vegetarian' },
   ];
 
   toggleCategoriesDropdown(): void {

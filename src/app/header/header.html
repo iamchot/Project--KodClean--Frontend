@@ -1,70 +1,76 @@
 <header class="main-header">
-  
-  <div class="left-group">
-    <div class="logo" [routerLink]="'/'">
-      KodClean<span class="logo-icon">🍴</span>
+  <div class="container header-content">
+    <div class="left-group">
+      <div class="logo" [routerLink]="'/'">KodClean<span class="logo-icon">🍴</span></div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button
+        class="mobile-menu-toggle"
+        (click)="toggleMobileMenu()"
+        [class.active]="isMobileMenuOpen"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="main-nav" [class.mobile-menu-open]="isMobileMenuOpen">
+        <ul>
+          <!-- เมนูก่อน Categories (Home, Recipes, Favorites) -->
+          <li *ngFor="let link of navLinksBeforeCategories">
+            <a
+              [routerLink]="link.route"
+              routerLinkActive="active-link"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              {{ link.label }}
+            </a>
+          </li>
+
+          <!-- Categories Dropdown (อยู่ตรงกลาง) -->
+          <li class="dropdown-container">
+            <a
+              class="dropdown-trigger"
+              routerLinkActive="active-link"
+              [routerLinkActiveOptions]="{ exact: false }"
+              [routerLink]="'/categories'"
+              (click)="toggleCategoriesDropdown(); $event.preventDefault()"
+            >
+              Categories
+              <fa-icon [icon]="['fas', 'chevron-down']" class="dropdown-icon"></fa-icon>
+            </a>
+
+            <!-- Dropdown Menu ลงมาข้างล่าง -->
+            <ul class="dropdown-menu" *ngIf="isCategoriesDropdownOpen">
+              <li *ngFor="let category of categoriesMenu">
+                <a [routerLink]="category.route" (click)="closeCategoriesDropdown()">
+                  {{ category.label }}
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- เมนูหลัง Categories (Contact, About) -->
+          <li *ngFor="let link of navLinksAfterCategories">
+            <a
+              [routerLink]="link.route"
+              routerLinkActive="active-link"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              {{ link.label }}
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
 
-    <nav class="main-nav">
-      <ul>
-        <!-- เมนูก่อน Categories (Home, Recipes, Favorites) -->
-        <li *ngFor="let link of navLinksBeforeCategories">
-          <a
-            [routerLink]="link.route"
-            routerLinkActive="active-link"
-            [routerLinkActiveOptions]="{ exact: true }"
-          >
-            {{ link.label }}
-          </a>
-        </li>
-        
-        <!-- Categories Dropdown (อยู่ตรงกลาง) -->
-        <li class="dropdown-container">
-          <a 
-            class="dropdown-trigger"
-            routerLinkActive="active-link"
-            [routerLinkActiveOptions]="{ exact: false }"
-            [routerLink]="'/categories'"
-            (click)="toggleCategoriesDropdown(); $event.preventDefault()"
-          >
-            Categories
-            <fa-icon [icon]="['fas', 'chevron-down']" class="dropdown-icon"></fa-icon>
-          </a>
-          
-          <!-- Dropdown Menu ลงมาข้างล่าง -->
-          <ul class="dropdown-menu" *ngIf="isCategoriesDropdownOpen">
-            <li *ngFor="let category of categoriesMenu">
-              <a 
-                [routerLink]="category.route"
-                (click)="closeCategoriesDropdown()"
-              >
-                {{ category.label }}
-              </a>
-            </li>
-          </ul>
-        </li>
-
-        <!-- เมนูหลัง Categories (Contact, About) -->
-        <li *ngFor="let link of navLinksAfterCategories">
-          <a
-            [routerLink]="link.route"
-            routerLinkActive="active-link"
-            [routerLinkActiveOptions]="{ exact: true }"
-          >
-            {{ link.label }}
-          </a>
-        </li>
-      </ul>
-    </nav>
+    <div class="user-actions">
+      <a [routerLink]="'/login'" class="login-signup-btn" *ngIf="!auth.isLoggedIn()">
+        <i class="fas fa-user-circle"></i> Login/Signup
+      </a>
+      <a class="login-signup-btn" *ngIf="auth.isLoggedIn()" (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </a>
+    </div>
   </div>
-
-  <div class="user-actions">
-  <a [routerLink]="'/login'" class="login-signup-btn" *ngIf="!auth.isLoggedIn()">
-    <i class="fas fa-user-circle"></i> Login/Signup
-  </a>
-  <a class="login-signup-btn" *ngIf="auth.isLoggedIn()" (click)="logout()">
-    <i class="fas fa-sign-out-alt"></i> Logout
-  </a>
-</div>
-
 </header>

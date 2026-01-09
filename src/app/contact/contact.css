@@ -238,3 +238,279 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* ==================== RESPONSIVE STYLES ==================== */
+
+/* Large devices (desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .contact-container {
+    max-width: 1200px;
+    padding: 40px 20px;
+  }
+
+  .main-title {
+    font-size: 2.8rem;
+    margin-bottom: 30px;
+  }
+
+  .contact-content-wrapper {
+    gap: 50px;
+  }
+
+  .left-section {
+    flex: 2;
+  }
+
+  .right-section {
+    flex: 1;
+  }
+}
+
+/* Medium devices (tablets, 768px to 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .contact-container {
+    max-width: 100%;
+    padding: 30px 20px;
+  }
+
+  .main-title {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+  }
+
+  .contact-content-wrapper {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .left-section,
+  .right-section {
+    min-width: 100%;
+    flex: auto;
+  }
+
+  .map-image-container {
+    height: 300px;
+    margin-bottom: 15px;
+  }
+
+  .contact-form-card {
+    padding: 20px;
+  }
+
+  .form-title {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+  }
+
+  .contact-form {
+    gap: 12px;
+  }
+
+  .form-input,
+  .form-textarea {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+
+  .form-textarea {
+    height: 120px;
+  }
+
+  .send-button {
+    padding: 9px 18px;
+    font-size: 0.95rem;
+  }
+
+  .address-block {
+    padding: 20px;
+  }
+
+  .role-title {
+    font-size: 1rem;
+  }
+
+  .contact-details li {
+    font-size: 0.9rem;
+  }
+}
+
+/* Small devices (landscape phones, 576px to 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+  .contact-container {
+    max-width: 100%;
+    padding: 20px 12px;
+  }
+
+  .main-title {
+    font-size: 1.8rem;
+    margin-bottom: 18px;
+  }
+
+  .contact-content-wrapper {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .left-section,
+  .right-section {
+    min-width: 100%;
+  }
+
+  .map-image-container {
+    height: 250px;
+    margin-bottom: 12px;
+  }
+
+  .contact-form-card {
+    padding: 15px;
+  }
+
+  .form-title {
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+
+  .contact-form {
+    gap: 10px;
+  }
+
+  .form-input,
+  .form-textarea {
+    padding: 9px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+  }
+
+  .form-textarea {
+    height: 100px;
+  }
+
+  .send-button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  .address-block {
+    padding: 15px;
+  }
+
+  .address-title {
+    font-size: 0.95rem;
+  }
+
+  .role-title {
+    font-size: 0.95rem;
+  }
+
+  .description-text {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+
+  .contact-details li {
+    font-size: 0.85rem;
+  }
+}
+
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .contact-container {
+    max-width: 100%;
+    padding: 15px 10px;
+  }
+
+  .main-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+
+  .contact-content-wrapper {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .left-section,
+  .right-section {
+    min-width: 100%;
+  }
+
+  .map-image-container {
+    height: 200px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+  }
+
+  .contact-form-card {
+    padding: 12px;
+    border-radius: 8px;
+  }
+
+  .form-title {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+  }
+
+  .contact-form {
+    gap: 8px;
+  }
+
+  .form-input,
+  .form-textarea {
+    padding: 8px;
+    font-size: 0.85rem;
+    border-radius: 4px;
+  }
+
+  .form-textarea {
+    height: 80px;
+    resize: none;
+  }
+
+  .send-button {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    border-radius: 4px;
+  }
+
+  .address-block {
+    padding: 12px;
+    border-radius: 8px;
+  }
+
+  .address-title {
+    font-size: 0.9rem;
+  }
+
+  .role-title {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+  }
+
+  .description-text {
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+  }
+
+  .contact-details {
+    gap: 8px;
+  }
+
+  .contact-details li {
+    font-size: 0.8rem;
+  }
+
+  .icon {
+    margin-right: 8px;
+    font-size: 0.95rem;
+  }
+
+  .success-banner {
+    margin-top: 8px;
+    padding: 8px 10px;
+    font-size: 0.8rem;
+  }
+}

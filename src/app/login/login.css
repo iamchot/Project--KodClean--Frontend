@@ -177,3 +177,121 @@ body {
         font-size: 1rem;
     }
 }
+
+/* Medium devices (tablets, 768px to 1199px) */
+@media (min-width: 576px) and (max-width: 1199px) {
+    .page-container {
+        padding: 30px 15px;
+    }
+
+    .login-card {
+        max-width: 450px;
+        padding: 35px 25px;
+    }
+
+    .login-title {
+        font-size: 2rem;
+        margin-bottom: 25px;
+    }
+
+    .login-form {
+        gap: 15px;
+    }
+
+    .form-label {
+        font-size: 0.9rem;
+    }
+
+    .form-input {
+        padding: 11px 14px;
+        font-size: 0.95rem;
+    }
+
+    .login-button {
+        padding: 13px;
+        font-size: 1rem;
+    }
+
+    .signup-prompt {
+        font-size: 0.95rem;
+        margin-top: 20px;
+    }
+}
+
+/* Small devices (landscape phones, 576px to 767px) */
+@media (min-width: 480px) and (max-width: 575.98px) {
+    .page-container {
+        padding: 20px 10px;
+    }
+
+    .login-card {
+        max-width: 420px;
+        padding: 30px 20px;
+    }
+
+    .login-title {
+        font-size: 1.7rem;
+        margin-bottom: 20px;
+    }
+
+    .form-input {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+
+    .login-button {
+        padding: 11px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Extra small devices (phones, less than 480px) */
+@media (max-width: 479.98px) {
+    .page-container {
+        padding: 15px 10px;
+    }
+
+    .login-card {
+        max-width: 100%;
+        padding: 20px 15px;
+        border-radius: 12px;
+    }
+
+    .login-title {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    .login-form {
+        gap: 12px;
+    }
+
+    .form-label {
+        font-size: 0.85rem;
+    }
+
+    .form-input {
+        padding: 9px 12px;
+        font-size: 0.85rem;
+        border-radius: 20px;
+    }
+
+    .forgot-password-link {
+        font-size: 0.8rem;
+    }
+
+    .login-button {
+        padding: 10px;
+        font-size: 0.9rem;
+        margin-top: 10px;
+    }
+
+    .signup-prompt {
+        font-size: 0.85rem;
+        margin-top: 15px;
+    }
+
+    .signup-link {
+        font-size: 0.85rem;
+    }
+}

@@ -3,7 +3,7 @@
     /* Grid Area ทำให้เนื้อหาและรูปภาพซ้อนทับกันได้ */
     grid-template-columns: 1fr; 
     grid-template-rows: 1fr;
-    max-width: 1400px;
+    max-width: var(--container-max-width);
     margin: 0 auto; /* จัดกึ่งกลาง */
     overflow: hidden; /* ซ่อนส่วนที่เกินขอบ */
     height: 600px; /* กำหนดความสูงเพื่อให้มีพื้นที่สำหรับรูปภาพ */
@@ -208,4 +208,261 @@
     right: 50px;
     border-radius: 50%;
     box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+/* ==================== RESPONSIVE STYLES ==================== */
+
+
+/* ==================== RESPONSIVE STYLES ==================== */
+
+/* Large devices (desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .hero-container {
+        min-height: 600px;
+        max-width: var(--container-max-width);
+        margin: 20px auto;
+        padding: 0 20px;
+    }
+
+    .hero-content {
+        padding-left: 100px;
+        padding-right: 40px;
+    }
+
+    .hero-content h1,
+    .hero-content h2 {
+        font-size: 4.5em;
+    }
+
+    .search-bar-wrapper {
+        max-width: 400px;
+    }
+}
+
+/* Medium devices (tablets, 768px to 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .hero-container {
+        min-height: 480px; /* Slightly reduced height */
+        height: auto;
+        max-width: 100%;
+        margin: 15px auto;
+        padding: 40px 30px;
+        border-radius: 8px;
+    }
+
+    .hero-content {
+        padding-left: 20px; /* Reset left padding */
+        padding-right: 20px;
+        z-index: 20;
+        max-width: 60%; /* Limit width to avoid overlapping image too much */
+    }
+
+    .hero-content h1 {
+        font-size: 3em;
+        margin-bottom: -5px;
+    }
+
+    .hero-content h2 {
+        font-size: 3em;
+        margin-bottom: 30px;
+        white-space: nowrap;
+    }
+
+    .search-bar-wrapper {
+        max-width: 350px;
+    }
+
+    /* Hide less important images */
+    .food-img.top-left,
+    .food-img.top-right-bowl,
+    .food-img.tiny-top-right,
+    .food-img.tiny-far-right,
+    .food-img.bottom-left-berries {
+        display: none;
+    }
+
+    /* Adjust position of Main Dish */
+    .food-img.main-dish {
+        width: 240px;
+        height: 240px;
+        left: auto;
+        right: 40px;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 1; /* Show clearly */
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .food-img.large-salad-plate {
+        width: 200px;
+        height: 200px;
+        right: -30px;
+        bottom: -30px;
+        opacity: 0.9;
+    }
+
+    .green-main-shape {
+        left: 45%;
+        width: 55%;
+        transform: skewX(-10deg) translateX(50px);
+    }
+}
+
+/* Small devices (landscape phones, 576px to 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+    .hero-container {
+        min-height: auto;
+        padding: 40px 20px;
+        margin: 10px auto;
+        align-items: center; /* Center vertically relative to grid */
+        display: flex;
+        flex-direction: column-reverse; /* Stack content below */
+        gap: 20px;
+        text-align: center;
+    }
+
+    .hero-visuals {
+        position: relative;
+        width: 100%;
+        height: 250px; /* Explicit height for visuals area */
+        grid-area: auto; /* Reset grid */
+    }
+
+    .hero-content {
+        padding: 0;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        grid-area: auto; /* Reset grid */
+        margin-top: -30px; /* Pull up slightly */
+        z-index: 30;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2em;
+    }
+
+    .hero-content h2 {
+        font-size: 2.2em;
+        margin-bottom: 20px;
+    }
+
+    .search-bar-wrapper {
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    /* Show Main Dish centrally */
+    .food-img { display: none; } /* Hide others */
+    
+    .food-img.main-dish {
+        display: block !important;
+        width: 200px;
+        height: 200px;
+        position: relative; /* In flow or absolute relative to visuals container */
+        top: auto;
+        left: auto;
+        right: auto;
+        margin: 0 auto;
+        transform: none;
+    }
+
+    .green-main-shape {
+        left: 0;
+        width: 100%;
+        height: 70%; /* Only top part */
+        top: 0;
+        border-radius: 0 0 50% 50% / 10% 10% 100% 100%; /* Curved bottom */
+        transform: none;
+        clip-path: none;
+        background-color: rgba(56, 193, 114, 0.15);
+    }
+    
+    .green-curved-shape { display: none; }
+}
+
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .hero-container {
+        display: flex;
+        flex-direction: column-reverse; /* Visuals on top (which is actually 2nd in DOM usually, but check HTML structure) - wait, DOM has content then visuals. Flex-col-reverse puts visuals (2nd) on top? No, default is row. We want Image above Text? usually visuals are absolute. Let's make it relative stack */
+        height: auto;
+        min-height: auto;
+        padding: 30px 15px 40px;
+        margin: 0 auto;
+        border-radius: 0;
+        overflow: visible; /* Allow overlaps */
+    }
+
+    /* Since we used grid-area 1/1/2/2, we need to reset for flex flow or keep grid */
+    .hero-visuals {
+        grid-area: auto;
+        position: relative;
+        width: 100%;
+        height: 240px;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero-content {
+        grid-area: auto;
+        padding: 0;
+        text-align: center;
+        align-items: center;
+        z-index: 20;
+    }
+
+    .hero-content h1 {
+        font-size: 2.4em;
+        margin-bottom: 2px;
+    }
+
+    .hero-content h2 {
+        font-size: 2.4em;
+        color: #38c172;
+        margin-bottom: 25px;
+    }
+
+    .search-bar-wrapper {
+        width: 100%;
+        max-width: 320px;
+        box-shadow: 0 5px 15px rgba(56, 193, 114, 0.2);
+    }
+    
+    .search-bar-wrapper input {
+        width: auto; /* let flex grow handle it */
+        min-width: 0;
+    }
+
+    /* Show only Main Dish - Centered */
+    .food-img { display: none !important; }
+    
+    .food-img.main-dish {
+        display: block !important;
+        width: 220px;
+        height: 220px;
+        position: relative; /* Not absolute */
+        top: auto;
+        left: auto;
+        transform: none;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        margin-top: 10px;
+    }
+
+    /* Background decoration */
+    .green-main-shape {
+        left: 0;
+        top: -20px; /* Extend up */
+        width: 100%;
+        height: 300px;
+        background-color: rgba(56, 193, 114, 0.1);
+        clip-path: none;
+        transform: none;
+        border-radius: 0 0 50% 50%; /* Nice curve below image */
+        position: absolute;
+    }
+
+    .green-curved-shape { display: none; }
 }

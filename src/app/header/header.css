@@ -1,13 +1,18 @@
 /* Container หลักของ Header */
 .main-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 50px;
   background-color: #ffffff;
   position: sticky;
   top: 0;
   z-index: 1000;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 /* กลุ่มทางซ้าย: Logo และ Navigation */
@@ -23,7 +28,7 @@
   align-items: center;
   font-size: 28px;
   font-weight: 700;
-  color: #1A1A2E;
+  color: #1a1a2e;
   cursor: pointer;
 }
 
@@ -104,7 +109,7 @@
   list-style: none;
   z-index: 1001;
   animation: dropdownFadeIn 0.2s ease-in-out;
-  
+
   /* ป้องกันไม่ให้เมนูไปข้างๆ */
   display: flex;
   flex-direction: column;
@@ -166,4 +171,248 @@
 
 .login-signup-btn i {
   font-size: 18px;
+}
+
+/* Mobile Toggle explicitly hidden on desktop */
+.mobile-menu-toggle {
+  display: none;
+}
+
+
+/* ==================== RESPONSIVE STYLES ==================== */
+
+/* Medium devices (tablets, 768px to 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .main-header {
+    padding: 0 15px; /* Reduced side padding */
+  }
+
+  .header-content {
+      padding-top: 10px;
+      padding-bottom: 10px;
+  }
+
+  .left-group {
+    gap: 20px; /* Compress gap */
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+
+  .logo img {
+    height: 26px;
+  }
+
+  .main-nav ul {
+    gap: 15px; /* Tighter links */
+  }
+
+  .main-nav a {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+
+  .login-signup-btn {
+    padding: 8px 20px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .login-signup-btn i {
+    font-size: 16px;
+  }
+}
+
+/* Small devices (landscape phones, 576px to 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+  .main-header {
+      padding: 0 10px;
+  }
+  
+  .header-content {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    flex-wrap: wrap; /* Prevent wrapping normally, but allow if needed */
+  }
+
+  .left-group {
+    gap: 15px;
+    width: auto; 
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .logo img {
+    height: 22px;
+  }
+
+  .main-nav ul {
+    gap: 10px;
+  }
+
+  .main-nav a {
+    font-size: 13px;
+    padding: 5px 8px;
+  }
+
+  .login-signup-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+}
+
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .main-header {
+    padding: 0 10px;
+  }
+
+  .header-content {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    justify-content: space-between;
+    align-items: center;
+    position: static; /* Let the nav absolute to window/header work better */
+  }
+
+  .left-group {
+    gap: 0; /* No gap needed for logo only */
+  }
+
+  .logo {
+    font-size: 22px;
+    z-index: 1003; /* Ensure header elements stay above menu if needed, but menu usually below */
+  }
+
+  .logo img {
+    height: 24px;
+    margin-right: 5px;
+  }
+
+  .user-actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-right: 12px;
+  }
+
+  /* Compact Login Button for Mobile */
+  .login-signup-btn {
+    padding: 6px 14px;
+    width: auto;
+    font-size: 13px;
+    border-radius: 30px;
+  }
+  
+  .login-signup-btn i {
+    font-size: 14px;
+  }
+
+  /* Mobile menu toggle button */
+  .mobile-menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1002;
+  }
+
+  .mobile-menu-toggle span {
+    width: 26px;
+    height: 3px;
+    background-color: #333;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    border-radius: 2px;
+  }
+  
+  /* Reset Nav for functionality */
+  .main-nav {
+    position: absolute;
+    top: 100%; /* Below header */
+    left: 0;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    display: block; /* Default display but hidden via height/opacity or transforms usually. Here we use display:none via class logic */
+    padding: 0;
+    z-index: 999;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    border-top: 1px solid rgba(0,0,0,0.05);
+  }
+
+  /* When open, we don't use display:flex directly to animate easily, 
+     but earlier logic used display:none/flex. Let's keep display:flex logic 
+     but add animation if possible, or stick to robust toggle */
+  .main-nav.mobile-menu-open {
+    display: flex;
+    max-height: 500px; /* Arbitrary large height */
+    padding-bottom: 20px;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+  }
+
+  .main-nav li {
+    width: 100%;
+    border-bottom: 1px solid #f9f9f9;
+  }
+
+  .main-nav a {
+    padding: 15px 20px;
+    width: 100%;
+    justify-content: space-between; /* If icon is present */
+    font-size: 15px;
+    color: #444;
+  }
+  
+  .main-nav a:hover, .main-nav a:active {
+      background-color: #f0fff4;
+      color: #38c172;
+  }
+  
+  /* Dropdown in mobile */
+  .dropdown-menu {
+      position: static;
+      box-shadow: none;
+      padding: 0;
+      margin: 0;
+      background-color: #f8f9fa;
+      animation: none;
+      border-top: 1px solid #eee;
+  }
+
+  .dropdown-menu a {
+      padding-left: 35px; /* Indent submenus */
+      font-size: 14px;
+      color: #666;
+  }
+  
+  /* Toggle Animation */
+  .mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+  }
+
+  .mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  .mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+  }
 }

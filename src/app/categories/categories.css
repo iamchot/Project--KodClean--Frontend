@@ -1,5 +1,5 @@
 .categories-container {
-  max-width: 1000px;
+  max-width: var(--container-max-width);
   margin: 40px auto;
   padding: 0 20px;
 }
@@ -35,3 +35,123 @@
   margin: 0;
 }
 
+/* ==================== RESPONSIVE STYLES ==================== */
+
+/* Large devices (desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .categories-container {
+    max-width: var(--container-max-width);
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  .page-title {
+    font-size: 2.8rem;
+  }
+
+  .category-title {
+    font-size: 2.2rem;
+  }
+}
+
+/* Medium devices (tablets, 768px to 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .categories-container {
+    max-width: 100%;
+    margin: 30px 0;
+    padding: 0 15px;
+  }
+
+  .page-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .category-title {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+  }
+
+  .category-list {
+    gap: 15px;
+  }
+
+  .no-recipes {
+    padding: 40px 15px;
+  }
+
+  .no-recipes p {
+    font-size: 1rem;
+  }
+}
+
+/* Small devices (landscape phones, 576px to 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+  .categories-container {
+    max-width: 100%;
+    margin: 20px 0;
+    padding: 0 12px;
+  }
+
+  .page-title {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+  }
+
+  .category-title {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+  }
+
+  .category-list {
+    gap: 12px;
+  }
+
+  .no-recipes {
+    padding: 30px 12px;
+    margin-top: 15px;
+  }
+
+  .no-recipes p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .categories-container {
+    max-width: 100%;
+    margin: 15px 0;
+    padding: 0 10px;
+  }
+
+  .page-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .category-title {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .category-list {
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .no-recipes {
+    padding: 20px 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+  }
+
+  .no-recipes p {
+    font-size: 0.9rem;
+  }
+}
